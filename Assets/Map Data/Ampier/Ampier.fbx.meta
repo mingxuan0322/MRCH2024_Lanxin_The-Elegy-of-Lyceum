@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e8b8c5abcef14314a93b9bfa082ce27f
+guid: 00210f5cdaf82ce4fb1f2c8bd4b1a8b0
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Ampier
-    second: {fileID: 2800000, guid: d33830de6b286be4685f99ce8605e725, type: 3}
+    second: {fileID: 2800000, guid: c92ce15389eeae546af713dcd26e227e, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -17,6 +17,9 @@ public class TouchManager : MonoBehaviour
     [Space(10), Header("Universal Touch Event"), SerializeField]
     private UnityEvent universalTouchEvent;
     [SerializeField] private UnityEvent universalReturnEvent;
+
+    [Title("Setting"), Wrap(0f,Mathf.Infinity), SerializeField]
+    private float touchRange;
     
     private Camera _mainCam;
 
@@ -31,6 +34,8 @@ public class TouchManager : MonoBehaviour
         }
         _mainCam = Camera.main;
         
+        if(touchableLayer == 0)
+            Debug.LogWarning("Please check if you forgot to assign the touchable layer on " + gameObject.name);
     }
 
     private void Update()
@@ -41,13 +46,14 @@ public class TouchManager : MonoBehaviour
         if (touch.phase == TouchPhase.Began)
         {
             Ray ray = _mainCam.ScreenPointToRay(touch.position);
-            if (Physics.Raycast(ray, out var hit, Mathf.Infinity, touchableLayer))
+            if (Physics.Raycast(ray, out var hit, touchRange, touchableLayer))
             {
                 var touchable = hit.transform.GetComponent<TouchableObject>();
                 if (touchable)
                 {
                     if(disableTouchOfOtherObjects)
                         _isTouchable = false;
+                    Debug.Log("Universal Touch Event triggered");
                     universalTouchEvent?.Invoke();
                     touchable.OnTouch();
                 }
@@ -59,6 +65,7 @@ public class TouchManager : MonoBehaviour
     {
         if(disableTouchOfOtherObjects)
             _isTouchable = true;
+        Debug.Log("Universal Return Event triggered");
         universalReturnEvent?.Invoke();
     }
 }

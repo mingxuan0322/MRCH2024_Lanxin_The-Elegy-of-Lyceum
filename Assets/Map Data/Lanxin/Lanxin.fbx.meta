@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0c217e03a04615f488fff5d997287191
+guid: e7e2a0bde0605074eaad97ca405b0d5e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Lanxin
-    second: {fileID: 2800000, guid: 0eaa0b8b166d7a147b1612fe3e69d7aa, type: 3}
+    second: {fileID: 2800000, guid: 5113cfdb86b5663469d60eb7e298f8f2, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

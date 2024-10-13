@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b3f595087b2f1e543acd759247b3cba6
+guid: dd40dd833e9c7174cb8baf7a8f299fca
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: YaZhouWenHui
-    second: {fileID: 2800000, guid: 1d75348b54eaeac4db766e680a11a8c2, type: 3}
+    second: {fileID: 2800000, guid: b1d0b2170dcd0c646be9bcb72de46af6, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

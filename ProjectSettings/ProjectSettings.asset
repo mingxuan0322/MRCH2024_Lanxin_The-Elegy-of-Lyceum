@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Mixed Reality and Cultural Heritage
-  productName: MRCH
+  productName: MRCH-YazhouWenhui
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -161,7 +161,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.MixedRealityandCulturalHeritage.MRCH
+    Android: com.MixedRealityandCulturalHeritage.MRCHYazhouWenhui
     Standalone: com.Mixed-Reality-and-Cultural-Heritage.MRCH
     iPhone: com.Mixed-Reality-and-Cultural-Heritage.MRCH
   buildNumber:
@@ -866,7 +866,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: DOTWEEN
+    Android: DOTWEEN;ODIN_INSPECTOR_EDITOR_ONLY;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;ODIN_INSPECTOR_3_2;ODIN_INSPECTOR_3_3
     EmbeddedLinux: DOTWEEN
     GameCoreScarlett: DOTWEEN
     GameCoreXboxOne: DOTWEEN

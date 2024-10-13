@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7413fb5a4a98bbe40af3a0ff2008cb80
+guid: 56de3a83b4adf7a4ca9b02f21a3681ce
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: NvQingNian_Outside
-    second: {fileID: 2800000, guid: eb89ba26bc94b474eaec1d210c088a55, type: 3}
+    second: {fileID: 2800000, guid: d8a742e26f76bb24b93bb22bb958b062, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

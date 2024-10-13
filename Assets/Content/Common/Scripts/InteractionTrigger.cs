@@ -135,6 +135,7 @@ public class InteractionTrigger : MonoBehaviour
                 // To trigger each event only once when the player enters the distance
                 if (_firstDistanceEnter)
                 {
+                    Debug.Log("onDistanceFirstEnter is triggered on "+gameObject.name);
                     onDistanceFirstEnter?.Invoke();
                     _firstDistanceEnter = false;
                 }
@@ -145,12 +146,14 @@ public class InteractionTrigger : MonoBehaviour
             }
             else if (!InDistance(distance) && _alreadyInDistance)
             {
+                Debug.Log("onDistanceExit is triggered on "+gameObject.name);
                 onDistanceExit?.Invoke();
                 _alreadyInDistance = false;
             }
 
             if (useEventsTriggers && useUpdateTrigger)
             {
+                Debug.Log("onUpdate is triggered on "+gameObject.name);
                 onUpdate?.Invoke();
             }
         }
@@ -166,10 +169,12 @@ public class InteractionTrigger : MonoBehaviour
                 {
                     if (_firstLookAtEnter)
                     {
+                        Debug.Log("onLookAtFirstEnter is triggered on "+gameObject.name);
                         onLookAtFirstEnter?.Invoke();
                         _firstLookAtEnter = false;
                     }
-
+                    
+                    Debug.Log("onLookAtEnter is triggered on "+gameObject.name);
                     onLookAtEnter?.Invoke();
 
                     _alreadyLookAt = true;
@@ -178,6 +183,7 @@ public class InteractionTrigger : MonoBehaviour
 
             else if (!InDistance(lookAtDistance) && _alreadyLookAt)
             {
+                Debug.Log("onLookAtDistanceExit is triggered on "+gameObject.name);
                 onLookAtDistanceExit?.Invoke();
                 _alreadyLookAt = false;
             }
@@ -187,27 +193,32 @@ public class InteractionTrigger : MonoBehaviour
     private void OnDisable()
     {
         if (useEventsTriggers && useOnDisableTrigger)
+        {
+            Debug.Log("onDisable is triggered on "+gameObject.name);
             onDisable?.Invoke();
+        }
     }
 
-    private bool InDistance(float distance)
+    private bool InDistance(float dist)
     {
-        return Vector3.Distance(transform.position, _playerTransform.position) <= distance;
+        return Vector3.Distance(transform.position, _playerTransform.position) <= dist;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!useColliderTrigger) return;
-        if (!other.CompareTag("Player")) return;
+        if (!(other.CompareTag("Player")||other.CompareTag("MainCamera"))) return;
 
         //In this way, only player can go on and two less indent
 
         if (_firstColliderEnter)
         {
+            Debug.Log("onTriggerFirstEnter is triggered on "+gameObject.name);
             onTriggerFirstEnter?.Invoke();
             _firstColliderEnter = false;
         }
 
+        Debug.Log("onTriggerEnter is triggered on "+gameObject.name);
         onTriggerEnter?.Invoke();
     }
 
@@ -216,6 +227,7 @@ public class InteractionTrigger : MonoBehaviour
         if (!useColliderTrigger) return;
         if (!other.CompareTag("Player")) return;
 
+        Debug.Log("onTriggerExit is triggered on "+gameObject.name);
         onTriggerExit?.Invoke();
     }
 
@@ -231,6 +243,11 @@ public class InteractionTrigger : MonoBehaviour
             if (_colliderTrigger == null)
             {
                 Debug.LogError("Collider Trigger is enabled but no collider is attached to " + gameObject.name);
+            }
+
+            else if(_colliderTrigger.isTrigger == false)
+            {
+                Debug.LogWarning("YOU SHOULD PROBABLY TURN ON 'isTrigger' of the collider on " + gameObject.name);
             }
 
             if (onTriggerFirstEnter == null && onTriggerEnter == null && onTriggerExit == null)

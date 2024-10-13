@@ -8,6 +8,7 @@ using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
+[AddComponentMenu("Interact/Text/Simple Tmp Typewriter")]
 public class SimpleTmpTypewriter : MonoBehaviour
 {
     [SerializeField,ReadOnly]
@@ -44,8 +45,10 @@ public class SimpleTmpTypewriter : MonoBehaviour
         
         TryGetComponent<TextMeshPro>(out text);
         
-        if(!textUI && !text)
-            Debug.LogWarning("Both Text and TextUI components not found in " + gameObject.name);
+        if (textUI == null == (text == null)) //It means both are null or both are not null, I write it for fun lol
+        {
+            Debug.LogWarning("Check the tmp/tmpUI component on " + gameObject.name);
+        }
         
         TryGetComponent(out _typeAudioSource); // Try to get the AudioSource component
         

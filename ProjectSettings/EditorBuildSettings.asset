@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/ContentFolder/Common/Scenes/Sample.unity
+  - enabled: 0
+    path: Assets/Content/Common/Scenes/Sample.unity
     guid: 5da2fa696b9c34e408ddc02cc263f71a
+  - enabled: 1
+    path: Assets/Content/Common/Scenes/Yazhou Wenhui.unity
+    guid: 1d88eb8cdd208d04a8c3df424995728e
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 5a2f9b67c02658745b46c1890755fc21, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 004f060af04f0cc40a700fb1b81e30ad, type: 2}

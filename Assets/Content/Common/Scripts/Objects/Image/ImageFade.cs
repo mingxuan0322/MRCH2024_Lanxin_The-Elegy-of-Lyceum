@@ -20,7 +20,7 @@ public class ImageFade : MonoBehaviour
     private bool _rawImageExists;
     private bool _imageExists;
     private bool _spriteRendererExists;
-    [SerializeField] private float secondsToFadeIn = 0.5f;
+    [SerializeField] private float secondsToFade = 0.5f;
     [Space(10), SerializeField] private bool fadeInOnAwake = true;
 
     private void Awake()
@@ -91,7 +91,7 @@ public class ImageFade : MonoBehaviour
         var t = 0f;
         while (t < 1f)
         {
-            t += Time.deltaTime / secondsToFadeIn;
+            t += Time.deltaTime / secondsToFade;
             if(_rawImageExists)
             {
                 var color = rawImage.color;

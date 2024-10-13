@@ -11,6 +11,7 @@ public class TouchableObject : MonoBehaviour
     
     public void OnTouch()
     {
+        Debug.Log($"Touch event on {gameObject.name} triggerred");
         onTouchEvent?.Invoke();
     }
 }

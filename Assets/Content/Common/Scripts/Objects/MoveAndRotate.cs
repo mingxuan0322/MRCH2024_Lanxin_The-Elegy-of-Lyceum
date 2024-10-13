@@ -5,6 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 
+[AddComponentMenu("Interact/MoveAndRotate")]
 public class MoveAndRotate : MonoBehaviour
 {
     [Title("Move Options"),Required] 
@@ -14,7 +15,10 @@ public class MoveAndRotate : MonoBehaviour
     [HideIf("moveForthAndBackOnEnable")]
     public bool moveForOnceOnEnable = false;
     [HideIf("moveForOnceOnEnable")]
-    public bool moveForthAndBackOnEnable = false;  
+    public bool moveForthAndBackOnEnable = false;
+
+    [Space, SerializeField] 
+    private Ease moveType = Ease.InOutSine;
 
     [Title("Rotate Options")]
     public bool keepRotatingOnEnable = false;      
@@ -22,6 +26,8 @@ public class MoveAndRotate : MonoBehaviour
     
     [Unit(Units.Second)]
     public float rotateDuration = 10f;
+
+    [Space, SerializeField] private Ease rotateType = Ease.Linear;
 
     private Vector3 _initalPosition;
     
@@ -80,14 +86,14 @@ public class MoveAndRotate : MonoBehaviour
         }
         
         _moveTween = transform.DOMove(moveTarget.position, moveSpeed)
-            .SetEase(Ease.Linear)
+            .SetEase(moveType)
             .SetLoops(-1, LoopType.Yoyo);  
     }
 
-    private void RotateObject()
+    public void RotateObject()
     {
         _rotateTween = transform.DORotate(rotationAxis * 360, rotateDuration, RotateMode.FastBeyond360)
-            .SetEase(Ease.Linear)
+            .SetEase(rotateType)
             .SetLoops(-1, LoopType.Restart);  
     }
 
