@@ -163,7 +163,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.MixedRealityandCulturalHeritage.MRCHYazhouWenhui
     Standalone: com.Mixed-Reality-and-Cultural-Heritage.MRCH
-    iPhone: com.Mixed-Reality-and-Cultural-Heritage.MRCH
+    iPhone: com.Mixed-Reality-and-Cultural-Heritage.MRCH-YazhouWenhui
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -876,7 +876,7 @@ PlayerSettings:
     PS5: DOTWEEN
     QNX: DOTWEEN
     Stadia: DOTWEEN
-    Standalone: DOTWEEN
+    Standalone: DOTWEEN;ODIN_INSPECTOR_EDITOR_ONLY;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;ODIN_INSPECTOR_3_2;ODIN_INSPECTOR_3_3
     VisionOS: DOTWEEN
     WebGL: DOTWEEN
     Windows Store Apps: DOTWEEN
@@ -991,7 +991,7 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 1
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
