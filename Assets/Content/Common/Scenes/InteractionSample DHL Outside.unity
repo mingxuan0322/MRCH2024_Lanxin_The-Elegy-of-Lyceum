@@ -1920,7 +1920,7 @@ GameObject:
   - component: {fileID: 355389490}
   - component: {fileID: 355389493}
   - component: {fileID: 355389492}
-  - component: {fileID: 355389491}
+  - component: {fileID: 355389494}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
@@ -1947,23 +1947,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &355389491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 355389489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8bb118bd49c40e41ad3613b0b458a32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rawImage: {fileID: 0}
-  image: {fileID: 0}
-  spriteRenderer: {fileID: 0}
-  secondsToFade: 10
-  fadeInOnAwake: 1
 --- !u!114 &355389492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1999,6 +1982,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 355389489}
   m_CullTransparentMesh: 1
+--- !u!114 &355389494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355389489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4744af27db6ef5c4bb7b768f6de6a3f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rawImage: {fileID: 0}
+  image: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  secondsToFade: 0.5
+  fadeInOnAwake: 1
 --- !u!43 &368448996
 Mesh:
   m_ObjectHideFlags: 0
@@ -3731,8 +3731,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1259882826}
   - component: {fileID: 1259882825}
-  - component: {fileID: 1259882829}
   - component: {fileID: 1259882824}
+  - component: {fileID: 1259882829}
   - component: {fileID: 1259882828}
   - component: {fileID: 1259882827}
   m_Layer: 0
@@ -3904,17 +3904,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1259882822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78bdd35a70480141bfa5b7b46c5985c, type: 3}
+  m_Script: {fileID: 11500000, guid: c745269b750bc594dba6c9617bd381bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textUI: {fileID: 0}
-  text: {fileID: 0}
-  contentToType: I'm rotating and moving!
-  TypeSpeed: 0.1
-  typeOnEnable: 0
-  onlyTypeForTheFirstTime: 1
-  saveCrossScene: 1
-  typeSound: {fileID: 0}
+  moveTarget: {fileID: 0}
+  moveSpeed: 2
+  moveForOnceOnEnable: 0
+  moveForthAndBackOnEnable: 0
+  moveType: 4
+  keepRotatingOnEnable: 0
+  rotationAxis: {x: 0, y: 1, z: 0}
+  rotateDuration: 10
+  rotateType: 1
 --- !u!114 &1259882828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3924,13 +3925,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1259882822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34664ec3b2f5f245a6e477c1585dea5, type: 3}
+  m_Script: {fileID: 11500000, guid: a931f479def5ceb4c80b379ebdf3524c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textUI: {fileID: 0}
   text: {fileID: 0}
-  cycleTime: 2
-  playOnAwake: 0
+  contentToType: 
+  TypeSpeed: 0.1
+  typeOnEnable: 0
+  onlyTypeForTheFirstTime: 0
+  saveCrossScene: 0
+  typeSound: {fileID: 0}
 --- !u!114 &1259882829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3940,18 +3945,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1259882822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a76741deca02f1458fdaf1c1b87d02c, type: 3}
+  m_Script: {fileID: 11500000, guid: 50c879e72c21ad642923f67a47216846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTarget: {fileID: 1678562138}
-  moveSpeed: 2
-  moveForOnceOnEnable: 0
-  moveForthAndBackOnEnable: 0
-  moveType: 4
-  keepRotatingOnEnable: 0
-  rotationAxis: {x: 0, y: 1, z: 0}
-  rotateDuration: 10
-  rotateType: 1
+  textUI: {fileID: 0}
+  text: {fileID: 0}
+  cycleTime: 2
+  _elapsedTime: 0
+  playOnAwake: 0
 --- !u!1 &1377195107
 GameObject:
   m_ObjectHideFlags: 0
@@ -4070,7 +4071,6 @@ GameObject:
   - component: {fileID: 1384275245}
   - component: {fileID: 1384275248}
   - component: {fileID: 1384275247}
-  - component: {fileID: 1384275246}
   m_Layer: 5
   m_Name: Click Return Object.
   m_TagString: Untagged
@@ -4097,22 +4097,6 @@ RectTransform:
   m_AnchoredPosition: {x: 232.20045, y: -25}
   m_SizeDelta: {x: 464.4009, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1384275246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1384275244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34664ec3b2f5f245a6e477c1585dea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textUI: {fileID: 0}
-  text: {fileID: 0}
-  cycleTime: 2
-  playOnAwake: 1
 --- !u!114 &1384275247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4365,7 +4349,6 @@ GameObject:
   - component: {fileID: 1457327627}
   - component: {fileID: 1457327630}
   - component: {fileID: 1457327629}
-  - component: {fileID: 1457327628}
   m_Layer: 5
   m_Name: Wait For Init
   m_TagString: Untagged
@@ -4392,22 +4375,6 @@ RectTransform:
   m_AnchoredPosition: {x: 22, y: 154}
   m_SizeDelta: {x: 766.3809, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1457327628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457327626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34664ec3b2f5f245a6e477c1585dea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textUI: {fileID: 0}
-  text: {fileID: 0}
-  cycleTime: 5
-  playOnAwake: 1
 --- !u!114 &1457327629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5329,10 +5296,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1830432042}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d07443d9631ada44b59871f3511a1e0, type: 3}
+  m_Script: {fileID: 11500000, guid: f0313b455e84a07448c86417361026c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockYAxis: 1
+  lockYAxis: 0
   faceToCamOnEnable: 1
 --- !u!1 &1866587255
 GameObject:
@@ -6135,7 +6102,7 @@ GameObject:
   - component: {fileID: 1993451177}
   - component: {fileID: 1993451176}
   - component: {fileID: 1993451175}
-  - component: {fileID: 1993451174}
+  - component: {fileID: 1993451178}
   m_Layer: 5
   m_Name: Wait For Loc
   m_TagString: Untagged
@@ -6143,22 +6110,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1993451174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1993451173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34664ec3b2f5f245a6e477c1585dea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textUI: {fileID: 0}
-  text: {fileID: 0}
-  cycleTime: 5
-  playOnAwake: 1
 --- !u!114 &1993451175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6275,6 +6226,23 @@ RectTransform:
   m_AnchoredPosition: {x: 19.326902, y: 154}
   m_SizeDelta: {x: 771.73, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1993451178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993451173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c879e72c21ad642923f67a47216846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUI: {fileID: 0}
+  text: {fileID: 0}
+  cycleTime: 2
+  _elapsedTime: 0
+  playOnAwake: 0
 --- !u!43 &2007548752
 Mesh:
   m_ObjectHideFlags: 0
@@ -6567,7 +6535,7 @@ GameObject:
   - component: {fileID: 2067649626}
   - component: {fileID: 2067649625}
   - component: {fileID: 2067649624}
-  - component: {fileID: 2067649623}
+  - component: {fileID: 2067649627}
   m_Layer: 5
   m_Name: You are looking at me!!!
   m_TagString: Untagged
@@ -6575,22 +6543,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &2067649623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067649622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34664ec3b2f5f245a6e477c1585dea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textUI: {fileID: 0}
-  text: {fileID: 0}
-  cycleTime: 3
-  playOnAwake: 0
 --- !u!114 &2067649624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6707,6 +6659,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -445}
   m_SizeDelta: {x: 427.2734, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2067649627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067649622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c879e72c21ad642923f67a47216846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textUI: {fileID: 0}
+  text: {fileID: 0}
+  cycleTime: 2
+  _elapsedTime: 0
+  playOnAwake: 0
 --- !u!1001 &2071747924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7161,7 +7130,6 @@ GameObject:
   - component: {fileID: 2102629729}
   - component: {fileID: 2102629732}
   - component: {fileID: 2102629731}
-  - component: {fileID: 2102629730}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -7188,22 +7156,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.76, y: -1.58}
   m_SizeDelta: {x: 1.314, y: 0.4248}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2102629730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102629728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c34664ec3b2f5f245a6e477c1585dea5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textUI: {fileID: 0}
-  text: {fileID: 0}
-  cycleTime: 2
-  playOnAwake: 1
 --- !u!114 &2102629731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7519,7 +7471,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2132071489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d07443d9631ada44b59871f3511a1e0, type: 3}
+  m_Script: {fileID: 11500000, guid: f0313b455e84a07448c86417361026c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lockYAxis: 0

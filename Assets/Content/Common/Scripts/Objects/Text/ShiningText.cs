@@ -9,11 +9,11 @@ public abstract class ShiningText : MonoBehaviour
     protected TextMeshProUGUI textUI;
     [SerializeField, ReadOnly]
     protected TextMeshPro text;
-    protected float cycleTime = 2.0f;
+    public float cycleTime = 2.0f;
 
-    protected float _elapsedTime = 0.0f; 
+    public float _elapsedTime = 0.0f; 
 
-    protected  bool play = false;
+    protected bool play = false;
 
     [SerializeField] private bool playOnAwake = false;
     
