@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-[AddComponentMenu("Interact/Object Toolset")]
-public class ObjectToolset : MonoBehaviour
+public abstract class ObjectToolset : MonoBehaviour
 {
     [InfoBox("Includes ToggleComponentEnabled for components and ToggleObjectEnabled for objects")]
-    public void ToggleComponentEnabled(Component component)
+    public virtual void ToggleComponentEnabled(Component component)
     {
         if (component is Behaviour behaviourComponent)
         {
@@ -19,7 +18,7 @@ public class ObjectToolset : MonoBehaviour
         }
     }
 
-    public void ToggleObjectEnabled(GameObject gameObject)
+    public virtual void ToggleObjectEnabled(GameObject gameObject)
     {
         if (gameObject != null)
         {

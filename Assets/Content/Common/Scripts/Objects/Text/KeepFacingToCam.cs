@@ -3,18 +3,17 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Serialization;
 
-[AddComponentMenu("Interact/Keep Facing To Cam")]
-public class KeepFacingToCam : MonoBehaviour
+public abstract class KeepFacingToCam : MonoBehaviour
 {
-    private Camera _mainCam;
+    protected Camera _mainCam;
     
-    private bool _faceToCam = false;
+    protected bool _faceToCam = false;
     
     [Title("Setting")]
-    [SerializeField] private bool lockYAxis = false;
-    [SerializeField] private bool faceToCamOnEnable = true;
+    [SerializeField] protected bool lockYAxis = false;
+    [SerializeField] protected bool faceToCamOnEnable = true;
 
-    private void Start()
+    protected virtual void Start()
     {
         _mainCam = Camera.main;
         
@@ -26,7 +25,7 @@ public class KeepFacingToCam : MonoBehaviour
         _faceToCam = faceToCamOnEnable;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (!_mainCam || !_faceToCam) return;
         
@@ -36,7 +35,7 @@ public class KeepFacingToCam : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(-directionToCamera);
     }
 
-    public void SetFaceToCam(bool target)
+    public virtual void SetFaceToCam(bool target)
     {
         _faceToCam = false;
     }

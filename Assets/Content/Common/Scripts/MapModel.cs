@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class MapModel : MonoBehaviour
 {
-    void Start()
+    private void Awake()
     {
-        if (!Application.isEditor)
-        {
-            // Deactivate the GameObject this script is attached to
-            gameObject.SetActive(false);
-        }
+#if UNITY_EDITOR
+        gameObject.hideFlags = HideFlags.DontSaveInBuild;
+        // This may prevent the reference model from being saved into the build.
+#endif
     }
-
 }

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 1116131}
   - component: {fileID: 1116130}
   - component: {fileID: 1116129}
-  - component: {fileID: 1116128}
+  - component: {fileID: 1116133}
   - component: {fileID: 1116132}
   m_Layer: 6
   m_Name: Touchable Object
@@ -159,37 +159,6 @@ Transform:
   - {fileID: 1672620139}
   m_Father: {fileID: 1465517198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1116128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cf5f025805cd04483cd978b1fd84c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isReturn: 0
-  onTouchEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1672620140}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: PlayOneShot
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: bf564f1d98fdbb048b0a9fda866e5e0b, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onReturnEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!135 &1116129
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -270,9 +239,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1116126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8befaeb8a547904409113b2879cf53fa, type: 3}
+  m_Script: {fileID: 11500000, guid: cac8eefea58cf08449d86d9504bf2238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1116133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35117c0bc8c3345498bbf09da663c473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isReturn: 0
+  onTouchEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onReturnEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &11737234
 GameObject:
   m_ObjectHideFlags: 0
@@ -2562,25 +2550,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 618742384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cf5f025805cd04483cd978b1fd84c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 35117c0bc8c3345498bbf09da663c473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isReturn: 1
   onTouchEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1465517199}
-        m_TargetAssemblyTypeName: TouchManager, MRCH.Common
-        m_MethodName: OnReturn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onReturnEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3380,7 +3356,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1465517199}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TouchManager, MRCH.Common
         m_MethodName: OnReturn
         m_Mode: 1
@@ -4246,7 +4222,7 @@ GameObject:
   - component: {fileID: 1391576759}
   - component: {fileID: 1391576758}
   - component: {fileID: 1391576757}
-  - component: {fileID: 1391576756}
+  - component: {fileID: 1391576761}
   - component: {fileID: 1391576760}
   m_Layer: 6
   m_Name: Touchable Object (1)
@@ -4271,37 +4247,6 @@ Transform:
   - {fileID: 2102629729}
   m_Father: {fileID: 1465517198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1391576756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391576754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cf5f025805cd04483cd978b1fd84c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isReturn: 0
-  onTouchEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1391576760}
-        m_TargetAssemblyTypeName: ObjectToolset, MRCH.Common.Objects
-        m_MethodName: ToggleObjectEnabled
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2102629728}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onReturnEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!135 &1391576757
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4382,9 +4327,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1391576754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8befaeb8a547904409113b2879cf53fa, type: 3}
+  m_Script: {fileID: 11500000, guid: cac8eefea58cf08449d86d9504bf2238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1391576761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391576754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35117c0bc8c3345498bbf09da663c473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isReturn: 0
+  onTouchEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onReturnEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1439917613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4833017261893764780, guid: 067e7b1d68eb241a3aedc7ceeb8d9fbb, type: 3}
@@ -4550,7 +4514,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1465517198}
-  - component: {fileID: 1465517199}
+  - component: {fileID: 1465517200}
   m_Layer: 0
   m_Name: TouchableObjects
   m_TagString: Untagged
@@ -4578,7 +4542,7 @@ Transform:
   - {fileID: 330834252}
   m_Father: {fileID: 1959774577}
   m_LocalEulerAnglesHint: {x: 0, y: -25.999, z: 0}
---- !u!114 &1465517199
+--- !u!114 &1465517200
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4587,7 +4551,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1465517197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad790967acf733542b7de4eb0c66adb7, type: 3}
+  m_Script: {fileID: 11500000, guid: f7e979e98ae2cfa43a4df968125e63f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   touchableLayer:
@@ -4671,8 +4635,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  touchRange: 20
-  disableTouchOfOtherObjects: 1
+  touchRange: 0
+  disableTouchOfOtherObjects: 0
 --- !u!1 &1535508121
 GameObject:
   m_ObjectHideFlags: 0
@@ -5381,8 +5345,8 @@ GameObject:
   - component: {fileID: 1866587256}
   - component: {fileID: 1866587260}
   - component: {fileID: 1866587259}
-  - component: {fileID: 1866587258}
   - component: {fileID: 1866587257}
+  - component: {fileID: 1866587261}
   m_Layer: 0
   m_Name: TriggerForTextRotating
   m_TagString: Untagged
@@ -5426,176 +5390,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.99999994, y: 1, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1866587258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866587255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa958d4142bcbb4284588acd51ccbb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useColliderTrigger: 1
-  onTriggerFirstEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1259882822}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1259882829}
-        m_TargetAssemblyTypeName: MoveAndRotate, Assembly-CSharp
-        m_MethodName: MoveForthAndBack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1259882829}
-        m_TargetAssemblyTypeName: MoveAndRotate, Assembly-CSharp
-        m_MethodName: RotateObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1259882828}
-        m_TargetAssemblyTypeName: ShiningText, Assembly-CSharp
-        m_MethodName: SetShiningText
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1259882827}
-        m_TargetAssemblyTypeName: SimpleTmpTypewriter, MRCH.Common.Objects
-        m_MethodName: StartTyping
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  onTriggerEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 355389489}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  onTriggerExit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 355389491}
-        m_TargetAssemblyTypeName: ImageFade, Assembly-CSharp
-        m_MethodName: Fadeout
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  useDistanceTrigger: 0
-  distance: 10
-  onDistanceFirstEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  onDistanceEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  onDistanceExit:
-    m_PersistentCalls:
-      m_Calls: []
-  useLookAtTrigger: 1
-  lookAtAngle: 25
-  lookAtDistance: 10
-  onLookAtFirstEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  onLookAtEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2067649622}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  onLookAtDistanceExit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2067649622}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  useEventsTriggers: 0
-  useStartTrigger: 0
-  onStart:
-    m_PersistentCalls:
-      m_Calls: []
-  useOnEnableTrigger: 0
-  onEnable:
-    m_PersistentCalls:
-      m_Calls: []
-  useUpdateTrigger: 0
-  onUpdate:
-    m_PersistentCalls:
-      m_Calls: []
-  useOnDisableTrigger: 0
-  onDisable:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!23 &1866587259
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5646,6 +5440,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866587255}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1866587261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866587255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f3e5b572150394d9c28666eb9bccb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useColliderTrigger: 0
+  onTriggerFirstEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  useDistanceTrigger: 0
+  distance: 10
+  onDistanceFirstEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onDistanceEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onDistanceExit:
+    m_PersistentCalls:
+      m_Calls: []
+  useLookAtTrigger: 0
+  lookAtAngle: 25
+  lookAtDistance: 0
+  onLookAtFirstEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onLookAtEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onLookAtDistanceExit:
+    m_PersistentCalls:
+      m_Calls: []
+  useEventsTriggers: 0
+  useStartTrigger: 0
+  onStart:
+    m_PersistentCalls:
+      m_Calls: []
+  useOnEnableTrigger: 0
+  onEnable:
+    m_PersistentCalls:
+      m_Calls: []
+  useUpdateTrigger: 0
+  onUpdate:
+    m_PersistentCalls:
+      m_Calls: []
+  useOnDisableTrigger: 0
+  onDisable:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1901236960
 GameObject:
   m_ObjectHideFlags: 0
@@ -5842,13 +5698,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7083116049946946780, guid: 4b1872f5118c6a64197727d452b165e4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2043661881}
+      addedObject: {fileID: 2043661884}
     - targetCorrespondingSourceObject: {fileID: 7083116049946946780, guid: 4b1872f5118c6a64197727d452b165e4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2043661880}
-    - targetCorrespondingSourceObject: {fileID: 7083116049946946780, guid: 4b1872f5118c6a64197727d452b165e4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2043661882}
+      addedObject: {fileID: 2043661883}
   m_SourcePrefab: {fileID: 100100000, guid: 4b1872f5118c6a64197727d452b165e4, type: 3}
 --- !u!4 &1927772155 stripped
 Transform:
@@ -6627,7 +6480,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7083116049946946780, guid: 4b1872f5118c6a64197727d452b165e4, type: 3}
   m_PrefabInstance: {fileID: 1927772154}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2043661880
+--- !u!114 &2043661883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6636,84 +6489,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2043661879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c1f5ba951c20a941947397c0e0e3260, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  namedUnityEvents:
-  - eventName: Event1
-    waitBeforeInvoke: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: FadeTextWorldSpace, Assembly-CSharp
-          m_MethodName: FadeIn
-          m_Mode: 4
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
-            m_FloatArgument: 0.3
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: FadeTextWorldSpace, Assembly-CSharp
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventName: 
-    waitBeforeInvoke: 0
-    unityEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  namedUnityEventSequences:
-  - sequenceName: FadeInFadeOut
-    namedUnityEventSequence:
-    - eventName: Event1
-      waitBeforeInvoke: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: 
-            m_MethodName: 
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: 
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    - eventName: Event2
-      waitBeforeInvoke: 0.3
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-    - eventName: 
-      waitBeforeInvoke: 0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
---- !u!114 &2043661881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043661879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa958d4142bcbb4284588acd51ccbb8, type: 3}
+  m_Script: {fileID: 11500000, guid: e5f3e5b572150394d9c28666eb9bccb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   useColliderTrigger: 0
@@ -6737,63 +6513,27 @@ MonoBehaviour:
   onDistanceExit:
     m_PersistentCalls:
       m_Calls: []
-  useLookAtTrigger: 1
+  useLookAtTrigger: 0
   lookAtAngle: 25
-  lookAtDistance: 10
+  lookAtDistance: 0
   onLookAtFirstEnter:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2043661880}
-        m_TargetAssemblyTypeName: UnityEventLibrary, Assembly-CSharp
-        m_MethodName: TriggerSequenceByName
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onLookAtEnter:
     m_PersistentCalls:
       m_Calls: []
   onLookAtDistanceExit:
     m_PersistentCalls:
       m_Calls: []
-  useEventsTriggers: 1
-  useStartTrigger: 1
+  useEventsTriggers: 0
+  useStartTrigger: 0
   onStart:
     m_PersistentCalls:
       m_Calls: []
-  useOnEnableTrigger: 1
+  useOnEnableTrigger: 0
   onEnable:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2043661880}
-        m_TargetAssemblyTypeName: UnityEventLibrary, Assembly-CSharp
-        m_MethodName: TriggerEventByName
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Event1
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2043661880}
-        m_TargetAssemblyTypeName: UnityEventLibrary, Assembly-CSharp
-        m_MethodName: TriggerSequenceByName
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: FadeInFadeOut
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   useUpdateTrigger: 0
   onUpdate:
     m_PersistentCalls:
@@ -6802,7 +6542,7 @@ MonoBehaviour:
   onDisable:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2043661882
+--- !u!114 &2043661884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6811,20 +6551,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2043661879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad790967acf733542b7de4eb0c66adb7, type: 3}
+  m_Script: {fileID: 11500000, guid: ef63a0a8505799d46a5fe748f5abba86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchableLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  universalTouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  universalReturnEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  touchRange: 0
-  disableTouchOfOtherObjects: 0
+  NamedUnityEvents: []
+  NamedUnityEventSequences: []
 --- !u!1 &2067649622
 GameObject:
   m_ObjectHideFlags: 0
@@ -7271,8 +7002,9 @@ GameObject:
   - component: {fileID: 2083387786}
   - component: {fileID: 2083387785}
   - component: {fileID: 2083387784}
-  - component: {fileID: 2083387783}
   - component: {fileID: 2083387787}
+  - component: {fileID: 2083387789}
+  - component: {fileID: 2083387788}
   m_Layer: 6
   m_Name: Touchable Object (2)
   m_TagString: Untagged
@@ -7295,37 +7027,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1465517198}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2083387783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2083387781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70cf5f025805cd04483cd978b1fd84c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isReturn: 0
-  onTouchEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2083387787}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Click
-          m_BoolArgument: 0
-        m_CallState: 2
-  onReturnEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!135 &2083387784
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7418,6 +7119,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2083387788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083387781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac8eefea58cf08449d86d9504bf2238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2083387789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083387781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35117c0bc8c3345498bbf09da663c473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isReturn: 0
+  onTouchEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onReturnEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2102629728
 GameObject:
   m_ObjectHideFlags: 0

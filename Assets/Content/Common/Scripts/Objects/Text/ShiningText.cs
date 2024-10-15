@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ShiningText : MonoBehaviour
+public abstract class ShiningText : MonoBehaviour
 {
     [SerializeField, ReadOnly]
-    private TextMeshProUGUI textUI;
+    protected TextMeshProUGUI textUI;
     [SerializeField, ReadOnly]
-    private TextMeshPro text;
-    public float cycleTime = 2.0f;
+    protected TextMeshPro text;
+    protected float cycleTime = 2.0f;
 
-    private float _elapsedTime = 0.0f; 
+    protected float _elapsedTime = 0.0f; 
 
-    private bool play = false;
+    protected  bool play = false;
 
     [SerializeField] private bool playOnAwake = false;
     
-    void Awake()
+    protected virtual void Awake()
     {
         TryGetComponent(out textUI);
         TryGetComponent(out text);
@@ -30,7 +30,7 @@ public class ShiningText : MonoBehaviour
         play = playOnAwake;
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if(!textUI && !text) return;
         
@@ -58,7 +58,7 @@ public class ShiningText : MonoBehaviour
         
     }
 
-    public void SetShiningText(bool target)
+    public virtual void SetShiningText(bool target)
     {
         play = target;
     }

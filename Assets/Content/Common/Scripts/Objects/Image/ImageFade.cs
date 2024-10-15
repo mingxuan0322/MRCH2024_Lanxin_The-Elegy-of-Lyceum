@@ -11,19 +11,19 @@ using UnityEngine.UI;
 /// This class provides functionality to fade in `RawImage` or `Image` components over a specified duration.
 /// </summary>
 
-public class ImageFade : MonoBehaviour
+public abstract class ImageFade : MonoBehaviour
 {
-    [ReadOnly,SerializeField] private RawImage rawImage;
-    [ReadOnly,SerializeField] private Image image;
-    [ReadOnly,SerializeField] private SpriteRenderer spriteRenderer;
+    [ReadOnly,SerializeField] protected RawImage rawImage;
+    [ReadOnly,SerializeField] protected Image image;
+    [ReadOnly,SerializeField] protected SpriteRenderer spriteRenderer;
 
-    private bool _rawImageExists;
-    private bool _imageExists;
-    private bool _spriteRendererExists;
-    [SerializeField] private float secondsToFade = 0.5f;
-    [Space(10), SerializeField] private bool fadeInOnAwake = true;
+    protected bool _rawImageExists;
+    protected bool _imageExists;
+    protected bool _spriteRendererExists;
+    [SerializeField] protected float secondsToFade = 0.5f;
+    [Space(10), SerializeField] protected bool fadeInOnAwake = true;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         var activeCount = 0;
         rawImage = GetComponent<RawImage>();
@@ -56,7 +56,7 @@ public class ImageFade : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         if(fadeInOnAwake)
         {
@@ -64,7 +64,7 @@ public class ImageFade : MonoBehaviour
         }
     }
 
-    public void FadeIn()
+    public virtual void FadeIn()
     {
         if(_rawImageExists)
             rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, 0f);
@@ -75,7 +75,7 @@ public class ImageFade : MonoBehaviour
         StartCoroutine(Fade(true));
     }
 
-    public void Fadeout()
+    public virtual void Fadeout()
     {
         if(_rawImageExists)
             rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, 1f);
@@ -86,7 +86,7 @@ public class ImageFade : MonoBehaviour
         StartCoroutine(Fade(false));    
     }
     
-    private IEnumerator Fade(bool target)
+    protected virtual  IEnumerator Fade(bool target)
     {  
         var t = 0f;
         while (t < 1f)

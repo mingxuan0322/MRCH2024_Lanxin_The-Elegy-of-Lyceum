@@ -5,8 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 
-[AddComponentMenu("Interact/MoveAndRotate")]
-public class MoveAndRotate : MonoBehaviour
+public abstract class MoveAndRotate : MonoBehaviour
 {
     [Title("Move Options"),Required] 
     public Transform moveTarget; 
@@ -18,7 +17,7 @@ public class MoveAndRotate : MonoBehaviour
     public bool moveForthAndBackOnEnable = false;
 
     [Space, SerializeField] 
-    private Ease moveType = Ease.InOutSine;
+    protected Ease moveType = Ease.InOutSine;
 
     [Title("Rotate Options")]
     public bool keepRotatingOnEnable = false;      
@@ -34,12 +33,12 @@ public class MoveAndRotate : MonoBehaviour
     private Tween _moveTween;
     private Tween _rotateTween;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _initalPosition = transform.position;
     }
 
-    private void OnEnable()
+    protected virtual  void OnEnable()
     {
         
         if (moveForthAndBackOnEnable)
@@ -57,7 +56,7 @@ public class MoveAndRotate : MonoBehaviour
         }
     }
 
-    public void MoveForOnce()
+    public virtual void MoveForOnce()
     {
         if (!moveTarget)
         {
@@ -67,17 +66,17 @@ public class MoveAndRotate : MonoBehaviour
         _moveTween = transform.DOMove(moveTarget.position, moveSpeed);
     }
 
-    public void MoveBackForOnce()
+    public virtual void MoveBackForOnce()
     {
         _moveTween = transform.DOMove(_initalPosition, moveSpeed);
     }
 
-    public void JumpBackToInitialPosition()
+    public virtual void JumpBackToInitialPosition()
     {
         transform.position = _initalPosition;
     }
 
-    public void MoveForthAndBack()
+    public virtual void MoveForthAndBack()
     {
         if (!moveTarget)
         {
@@ -90,24 +89,24 @@ public class MoveAndRotate : MonoBehaviour
             .SetLoops(-1, LoopType.Yoyo);  
     }
 
-    public void RotateObject()
+    public virtual void RotateObject()
     {
         _rotateTween = transform.DORotate(rotationAxis * 360, rotateDuration, RotateMode.FastBeyond360)
             .SetEase(rotateType)
             .SetLoops(-1, LoopType.Restart);  
     }
 
-    public void StopMovement()
+    public virtual void StopMovement()
     {
         _moveTween.Kill();
     }
 
-    public void StopRotation()
+    public virtual void StopRotation()
     {
         _rotateTween.Kill();
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         // Kill all tweens on this GameObject when disabled
         transform.DOKill();

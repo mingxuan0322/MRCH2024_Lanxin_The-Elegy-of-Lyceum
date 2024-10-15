@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Mixed Reality and Cultural Heritage
-  productName: MRCH-YazhouWenhui
+  productName: MRCH-Example
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -51,7 +51,7 @@ PlayerSettings:
   unsupportedMSAAFallback: 0
   m_SpriteBatchVertexThreshold: 300
   m_MTRendering: 1
-  mipStripping: 0
+  mipStripping: 1
   numberOfMipsStripped: 0
   numberOfMipsStrippedPerMipmapLimitGroup: {}
   m_StackTraceTypes: 010000000100000001000000010000000100000001000000
@@ -85,7 +85,7 @@ PlayerSettings:
   Prepare IOS For Recording: 0
   Force IOS Speakers When Recording: 0
   deferSystemGesturesMode: 0
-  hideHomeButton: 0
+  hideHomeButton: 1
   submitAnalytics: 1
   usePlayerLog: 1
   dedicatedServerOptimizations: 0
@@ -161,9 +161,9 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.MixedRealityandCulturalHeritage.MRCHYazhouWenhui
+    Android: com.MixedRealityandCulturalHeritage.MRCHExample
     Standalone: com.Mixed-Reality-and-Cultural-Heritage.MRCH
-    iPhone: com.Mixed-Reality-and-Cultural-Heritage.MRCH-YazhouWenhui
+    iPhone: com.Mixed-Reality-and-Cultural-Heritage.MRCH-Example
   buildNumber:
     Standalone: 0
     VisionOS: 0

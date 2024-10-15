@@ -5,8 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
-[AddComponentMenu("Interact/Touchable Object Manager")]
-public class TouchManager : MonoBehaviour
+public abstract class TouchManager : MonoBehaviour
 {
     [InfoBox("Add Collider and TouchableObject.cs to the object you want to be touchable")]
     [Required,InfoBox("Assign this and all touchable Objects to a (special) layer", InfoMessageType.Warning, "TouchableLayerAssigned")]
@@ -16,8 +15,8 @@ public class TouchManager : MonoBehaviour
     private static bool _isTouchable = true;
     
     [Space(10), Header("Universal Touch Event"), SerializeField]
-    private UnityEvent universalTouchEvent;
-    [SerializeField] private UnityEvent universalReturnEvent;
+    protected UnityEvent universalTouchEvent;
+    [SerializeField] protected UnityEvent universalReturnEvent;
 
     [Title("Setting"), PropertyRange(0f,300f), SerializeField]
     private float touchRange;

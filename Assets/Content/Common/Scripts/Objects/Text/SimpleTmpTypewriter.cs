@@ -8,37 +8,36 @@ using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
-[AddComponentMenu("Interact/Text/Simple Tmp Typewriter")]
-public class SimpleTmpTypewriter : MonoBehaviour
+public abstract class SimpleTmpTypewriter : MonoBehaviour
 {
     [SerializeField,ReadOnly]
-    private TextMeshProUGUI textUI;
+    protected TextMeshProUGUI textUI;
 
     [SerializeField, ReadOnly] 
-    private TextMeshPro text;
+    protected TextMeshPro text;
     
     [CanBeNull,AssetsOnly] 
-    private AudioSource _typeAudioSource;
+    protected AudioSource _typeAudioSource;
     
     [Title("Content to type", bold: false),InfoBox("Put the content you want to type in the text area, the content of the TMP component will be ignored",InfoMessageType.Warning)]
     [HideLabel]
     [MultiLineProperty(8),SerializeField]
-    private string contentToType;
-    [SerializeField] private float TypeSpeed = 0.1f;
+    protected string contentToType;
+    [SerializeField] protected float TypeSpeed = 0.1f;
 
     [Title("Setting")]
-    [SerializeField] private bool typeOnEnable = false;
+    [SerializeField] protected bool typeOnEnable = false;
 
     
-    [SerializeField] private bool onlyTypeForTheFirstTime = false;
-    [SerializeField] private bool saveCrossScene = false;
+    [SerializeField] protected bool onlyTypeForTheFirstTime = false;
+    [SerializeField] protected bool saveCrossScene = false;
     [CanBeNull,SerializeField,InfoBox("If you need to play a sound when typing, you need to set the AudioSource up and audioclip here"),Space] 
-    private AudioClip typeSound;
+    protected AudioClip typeSound;
     
-    private bool _isPlayed = false;
-    private bool _isPlaying = false;
+    protected bool _isPlayed = false;
+    protected bool _isPlaying = false;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         
         TryGetComponent<TextMeshProUGUI>(out textUI);
@@ -54,7 +53,7 @@ public class SimpleTmpTypewriter : MonoBehaviour
         
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         if (typeOnEnable)
         {
@@ -69,23 +68,23 @@ public class SimpleTmpTypewriter : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         _isPlaying = false;
     }
 
-    public void StartTyping()
+    public virtual void StartTyping()
     {
         StartCoroutine(TypeText(contentToType));
     }
 
-    public void FinishTyping()
+    public virtual void FinishTyping()
     {
         if (text) text.text = contentToType;
         if (textUI) textUI.text = contentToType;
     }
     
-    private IEnumerator TypeText(string textToType)
+    protected virtual IEnumerator TypeText(string textToType)
     {
         if (_isPlaying)
         {

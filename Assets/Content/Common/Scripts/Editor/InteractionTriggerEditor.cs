@@ -2,7 +2,7 @@ using UnityEditor;
 
 namespace Content.Common.Scripts.Editor
 {
-    [CustomEditor(typeof(InteractionTrigger))]
+    [CustomEditor(typeof(InteractionTriggerWrapper))]
     public class InteractionTriggerEditor : UnityEditor.Editor
     {
         private SerializedProperty _useColliderTrigger;
