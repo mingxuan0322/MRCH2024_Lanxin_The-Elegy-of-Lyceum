@@ -7,29 +7,22 @@ using Sirenix.OdinInspector;
 
 public abstract class MoveAndRotate : MonoBehaviour
 {
-    [Title("Move Options"),Required] 
-    public Transform moveTarget; 
-    [Unit(Units.MetersPerSecond)]
-    public float moveSpeed = 2f;    
-    [HideIf("moveForthAndBackOnEnable")]
-    public bool moveForOnceOnEnable = false;
-    [HideIf("moveForOnceOnEnable")]
-    public bool moveForthAndBackOnEnable = false;
+    [Title("Move Options"), Required] public Transform moveTarget;
+    [Unit(Units.MetersPerSecond)] public float moveSpeed = 2f;
+    [HideIf("moveForthAndBackOnEnable")] public bool moveForOnceOnEnable = false;
+    [HideIf("moveForOnceOnEnable")] public bool moveForthAndBackOnEnable = false;
 
-    [Space, SerializeField] 
-    protected Ease moveType = Ease.InOutSine;
+    [Space, SerializeField] protected Ease moveType = Ease.InOutSine;
 
-    [Title("Rotate Options")]
-    public bool keepRotatingOnEnable = false;      
-    public Vector3 rotationAxis = Vector3.up;  
-    
-    [Unit(Units.Second)]
-    public float rotateDuration = 10f;
+    [Title("Rotate Options")] public bool keepRotatingOnEnable = false;
+    public Vector3 rotationAxis = Vector3.up;
+
+    [Unit(Units.Second)] public float rotateDuration = 10f;
 
     [Space, SerializeField] private Ease rotateType = Ease.Linear;
 
     private Vector3 _initalPosition;
-    
+
     private Tween _moveTween;
     private Tween _rotateTween;
 
@@ -38,18 +31,17 @@ public abstract class MoveAndRotate : MonoBehaviour
         _initalPosition = transform.position;
     }
 
-    protected virtual  void OnEnable()
+    protected virtual void OnEnable()
     {
-        
         if (moveForthAndBackOnEnable)
         {
             MoveForthAndBack();
         }
-        else if(moveForOnceOnEnable)
+        else if (moveForOnceOnEnable)
         {
             MoveForOnce();
         }
-        
+
         if (keepRotatingOnEnable)
         {
             RotateObject();
@@ -63,6 +55,7 @@ public abstract class MoveAndRotate : MonoBehaviour
             Debug.LogError("Move target not set on MoveAndRotate" + gameObject.name);
             return;
         }
+
         _moveTween = transform.DOMove(moveTarget.position, moveSpeed);
     }
 
@@ -83,17 +76,17 @@ public abstract class MoveAndRotate : MonoBehaviour
             Debug.LogError("Move target not set on MoveAndRotate" + gameObject.name);
             return;
         }
-        
+
         _moveTween = transform.DOMove(moveTarget.position, moveSpeed)
             .SetEase(moveType)
-            .SetLoops(-1, LoopType.Yoyo);  
+            .SetLoops(-1, LoopType.Yoyo);
     }
 
     public virtual void RotateObject()
     {
         _rotateTween = transform.DORotate(rotationAxis * 360, rotateDuration, RotateMode.FastBeyond360)
             .SetEase(rotateType)
-            .SetLoops(-1, LoopType.Restart);  
+            .SetLoops(-1, LoopType.Restart);
     }
 
     public virtual void StopMovement()
@@ -111,5 +104,4 @@ public abstract class MoveAndRotate : MonoBehaviour
         // Kill all tweens on this GameObject when disabled
         transform.DOKill();
     }
-
 }

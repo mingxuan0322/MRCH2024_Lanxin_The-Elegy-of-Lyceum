@@ -5,5 +5,4 @@ using UnityEngine;
 [AddComponentMenu("MRCH-Interact/Move & Rotate")]
 public class MoveAndRotateWrapper : MoveAndRotate
 {
-
 }

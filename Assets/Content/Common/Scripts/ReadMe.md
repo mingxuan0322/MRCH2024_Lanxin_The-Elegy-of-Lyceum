@@ -1,13 +1,12 @@
 I used Assembly definitions and abstract & Wrappers.
 
-Here the .asmdef  is used, so you cannot directly change the reference. Know more about Assembly Definition at: https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html
+Here the .asmdef is used, so you cannot directly change the reference. Know more about Assembly Definition
+at: https://docs.unity3d.com/Manual/ScriptCompilationAssemblyDefinitionFiles.html
 
-
-
-NO MATTER WHAT, YOU ARE **NOT SUPPOSE TO CHANGE THE SCRIPTS IN THIS FOLDER** FOR EASIER INTERGRATION OF THE COURSE PROJECTS LATER.
-
-
+NO MATTER WHAT, YOU ARE **NOT SUPPOSE TO CHANGE THE SCRIPTS IN THIS FOLDER** FOR EASIER INTERGRATION OF THE COURSE
+PROJECTS LATER.
 
 Instead, if you find any bugs or want me to develop functions , contact Shengyang (mailto: billy.peng@nyu.edu) .
 
-BTW, if you are interested in my codes, you are welcomed to find me to have further detailed instructions on my codes XD.
+BTW, if you are interested in my codes, you are welcomed to find me to have further detailed instructions on my codes
+XD.

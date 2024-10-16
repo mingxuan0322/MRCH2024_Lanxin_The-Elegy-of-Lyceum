@@ -2,7 +2,7 @@ using UnityEditor;
 
 namespace Content.Common.Scripts.Editor
 {
-    [CustomEditor(typeof(InteractionTriggerWrapper))]
+    //[CustomEditor(typeof(InteractionTriggerWrapper))]
     public class InteractionTriggerEditor : UnityEditor.Editor
     {
         private SerializedProperty _useColliderTrigger;
@@ -14,7 +14,7 @@ namespace Content.Common.Scripts.Editor
         private SerializedProperty _useOnEnableTrigger;
         private SerializedProperty _useUpdateTrigger;
         private SerializedProperty _useOnDisableTrigger;
-        
+
 
         private SerializedProperty _distance;
         private SerializedProperty _lookAtAngle;
@@ -23,15 +23,15 @@ namespace Content.Common.Scripts.Editor
         private SerializedProperty _onTriggerFirstEnter;
         private SerializedProperty _onTriggerEnter;
         private SerializedProperty _onTriggerExit;
-        
+
         private SerializedProperty _onDistanceFirstEnter;
         private SerializedProperty _onDistanceEnter;
         private SerializedProperty _onDistanceExit;
-        
+
         private SerializedProperty _onLookAtFirstEnter;
         private SerializedProperty _onLookAtEnter;
         private SerializedProperty _onLookAtDistanceExit;
-        
+
         private SerializedProperty _onStart;
         private SerializedProperty _onEnable;
         private SerializedProperty _onUpdate;
@@ -44,12 +44,12 @@ namespace Content.Common.Scripts.Editor
             _useDistanceTrigger = serializedObject.FindProperty("useDistanceTrigger");
             _useLookAtTrigger = serializedObject.FindProperty("useLookAtTrigger");
             _useEventsTriggers = serializedObject.FindProperty("useEventsTriggers");
-            
-                
-                _useStartTrigger = serializedObject.FindProperty("useStartTrigger");
-                _useOnEnableTrigger = serializedObject.FindProperty("useOnEnableTrigger");
-                _useUpdateTrigger = serializedObject.FindProperty("useUpdateTrigger");
-                _useOnDisableTrigger = serializedObject.FindProperty("useOnDisableTrigger");
+
+
+            _useStartTrigger = serializedObject.FindProperty("useStartTrigger");
+            _useOnEnableTrigger = serializedObject.FindProperty("useOnEnableTrigger");
+            _useUpdateTrigger = serializedObject.FindProperty("useUpdateTrigger");
+            _useOnDisableTrigger = serializedObject.FindProperty("useOnDisableTrigger");
 
             _distance = serializedObject.FindProperty("distance");
             _lookAtAngle = serializedObject.FindProperty("lookAtAngle");
@@ -66,7 +66,7 @@ namespace Content.Common.Scripts.Editor
             _onLookAtFirstEnter = serializedObject.FindProperty("onLookAtFirstEnter");
             _onLookAtEnter = serializedObject.FindProperty("onLookAtEnter");
             _onLookAtDistanceExit = serializedObject.FindProperty("onLookAtDistanceExit");
-            
+
             _onStart = serializedObject.FindProperty("onStart");
             _onEnable = serializedObject.FindProperty("onEnable");
             _onUpdate = serializedObject.FindProperty("onUpdate");
@@ -75,8 +75,9 @@ namespace Content.Common.Scripts.Editor
 
         public override void OnInspectorGUI()
         {
-            serializedObject.Update();
-        
+            //DrawDefaultInspector(); //Change to Odin
+            /*serializedObject.Update();
+
             EditorGUILayout.PropertyField(_useColliderTrigger);
             if (_useColliderTrigger.boolValue)
             {
@@ -86,7 +87,7 @@ namespace Content.Common.Scripts.Editor
                 EditorGUILayout.PropertyField(_onTriggerExit);
                 EditorGUI.indentLevel--;
             }
-        
+
             EditorGUILayout.PropertyField(_useDistanceTrigger);
             if (_useDistanceTrigger.boolValue)
             {
@@ -97,7 +98,7 @@ namespace Content.Common.Scripts.Editor
                 EditorGUILayout.PropertyField(_onDistanceExit);
                 EditorGUI.indentLevel--;
             }
-        
+
             EditorGUILayout.PropertyField(_useLookAtTrigger);
             if (_useLookAtTrigger.boolValue)
             {
@@ -109,7 +110,7 @@ namespace Content.Common.Scripts.Editor
                 EditorGUILayout.PropertyField(_onLookAtDistanceExit);
                 EditorGUI.indentLevel--;
             }
-            
+
             EditorGUILayout.PropertyField(_useEventsTriggers);
             if (_useEventsTriggers.boolValue)
             {
@@ -121,7 +122,7 @@ namespace Content.Common.Scripts.Editor
                     EditorGUILayout.PropertyField(_onStart);
                     EditorGUI.indentLevel--;
                 }
-                
+
                 EditorGUILayout.PropertyField(_useOnEnableTrigger);
                 if (_useOnEnableTrigger.boolValue)
                 {
@@ -129,7 +130,7 @@ namespace Content.Common.Scripts.Editor
                     EditorGUILayout.PropertyField(_onEnable);
                     EditorGUI.indentLevel--;
                 }
-                    
+
                 EditorGUILayout.PropertyField(_useUpdateTrigger);
                 if (_useUpdateTrigger.boolValue)
                 {
@@ -140,7 +141,7 @@ namespace Content.Common.Scripts.Editor
                     EditorGUI.indentLevel--;
                     EditorGUILayout.Space();
                 }
-                
+
                 EditorGUILayout.PropertyField(_useOnDisableTrigger);
                 if(_useOnDisableTrigger.boolValue)
                 {
@@ -152,6 +153,8 @@ namespace Content.Common.Scripts.Editor
             }
 
             serializedObject.ApplyModifiedProperties();
+        }
+    }*/
         }
     }
 }

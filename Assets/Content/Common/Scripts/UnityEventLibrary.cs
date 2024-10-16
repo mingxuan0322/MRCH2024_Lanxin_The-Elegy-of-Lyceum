@@ -2,20 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events; 
+using UnityEngine.Events;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 
 [Serializable]
 public class NamedUnityEvent
 {
-    [Tooltip("The name of the event."),Title("$eventName")] 
+    [Tooltip("The name of the event."), Title("$eventName")]
     public string eventName;
 
-    [Tooltip("The delay in seconds before invoking the event."),Space] 
+    [Tooltip("The delay in seconds before invoking the event."), Space]
     public float waitBeforeInvoke = 0f;
 
-    [Tooltip("The Unity event to invoke."),Space(10)] 
+    [Tooltip("The Unity event to invoke."), Space(10)]
     public UnityEvent unityEvent;
 }
 
@@ -23,11 +23,11 @@ public class NamedUnityEvent
 [Serializable]
 public class NamedUnityEventSequence
 {
-    [Title("$sequenceName")]
-    public string sequenceName;
+    [Title("$sequenceName")] public string sequenceName;
 
-    [Tooltip("The array of named Unity events in the sequence."),Space(10),
-    InfoBox("The order of the events in the array will be the order of the events in the sequence with the consideration of 'WaitBeforeInvoke'")] 
+    [Tooltip("The array of named Unity events in the sequence."), Space(10),
+     InfoBox(
+         "The order of the events in the array will be the order of the events in the sequence with the consideration of 'WaitBeforeInvoke'")]
     public NamedUnityEvent[] namedUnityEventSequence;
 }
 
@@ -40,17 +40,21 @@ public class NamedUnityEventSequence
 /// </summary>
 public abstract class UnityEventLibrary : MonoBehaviour
 {
-   // [TitleGroup("UnityEventLibrary",boldTitle: true, horizontalLine: true, indent: false),Tooltip("This can be used as the library of single UnityEvents and UnityEventSequences;")]
-    
-    [PropertySpace(SpaceAfter = 30),TitleGroup("Single Unity Events", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false),Searchable,
+    // [TitleGroup("UnityEventLibrary",boldTitle: true, horizontalLine: true, indent: false),Tooltip("This can be used as the library of single UnityEvents and UnityEventSequences;")]
+
+    [PropertySpace(SpaceAfter = 30),
+     TitleGroup("Single Unity Events", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true,
+         indent: false), Searchable,
      InfoBox(
          "Create a list of Unity Events to store the events you want to invoke.Then use 'TriggerEventByName' to invoke them.")]
     public List<NamedUnityEvent> NamedUnityEvents = new();
 
-    [TitleGroup("Event Sequences", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true, indent: false),Space(20),
+    [TitleGroup("Event Sequences", alignment: TitleAlignments.Centered, horizontalLine: true, boldTitle: true,
+         indent: false), Space(20),
      InfoBox(
          "Create a list of Unity Event Sequences to store the event sequences you want to invoke. Then use 'TriggerSequenceByName' to invoke them. ")]
-    [InfoBox("N.B.: The events in one sequence is not invoked in parallel, but in sequence.",InfoMessageType.Warning),Searchable]
+    [InfoBox("N.B.: The events in one sequence is not invoked in parallel, but in sequence.", InfoMessageType.Warning),
+     Searchable]
     public List<NamedUnityEventSequence> NamedUnityEventSequences = new();
 
     /// <summary>
@@ -139,5 +143,4 @@ public abstract class UnityEventLibrary : MonoBehaviour
         var sequence = GetNamedSequenceByName(sequenceName);
         await TriggerEventSequenceAsync(sequence);
     }
-    
 }

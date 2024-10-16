@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,20 +12,26 @@ using UnityEngine.Events;
 /// DO NOT CHANGE THE SCRIPT! COPY THE CODE TO YOUR FOLDER AND CHANGE THE CLASS NAME IF YOU WANT TO MODIFY IT.
 /// You can inherit this class and override specific methods.
 /// </summary>
-public abstract class InteractionTrigger : MonoBehaviour 
+public abstract class InteractionTrigger : MonoBehaviour
 {
     #region Variables
 
     #region Position
 
-    [Header("Collider Trigger"), Space(5)] [SerializeField]
+    [Title("Collider Trigger"), SerializeField]
     private bool useColliderTrigger;
+
 
     private Collider _colliderTrigger;
 
-    [Space(5)] [SerializeField] private UnityEvent onTriggerFirstEnter;
-    [SerializeField] private UnityEvent onTriggerEnter;
-    [SerializeField] private UnityEvent onTriggerExit;
+    [Space, ShowIf("useColliderTrigger"), SerializeField, Indent]
+    private UnityEvent onTriggerFirstEnter;
+
+    [ShowIf("useColliderTrigger"), SerializeField, Indent]
+    private UnityEvent onTriggerEnter;
+
+    [ShowIf("useColliderTrigger"), SerializeField, Indent]
+    private UnityEvent onTriggerExit;
 
     private bool _firstColliderEnter = true;
 
@@ -32,14 +39,20 @@ public abstract class InteractionTrigger : MonoBehaviour
 
     #region Distance
 
-    [Header("Distance Trigger"), Space(5)] [SerializeField]
+    [Title("Distance Trigger"), Space, SerializeField]
     private bool useDistanceTrigger;
 
-    [SerializeField] private float distance = 10f;
+    [ShowIf("useDistanceTrigger"), SerializeField, Indent]
+    protected float distance = 10f;
 
-    [Space(5)] [SerializeField] private UnityEvent onDistanceFirstEnter;
-    [SerializeField] private UnityEvent onDistanceEnter;
-    [SerializeField] private UnityEvent onDistanceExit;
+    [Space, ShowIf("useDistanceTrigger"), SerializeField, Indent]
+    private UnityEvent onDistanceFirstEnter;
+
+    [ShowIf("useDistanceTrigger"), SerializeField, Indent]
+    private UnityEvent onDistanceEnter;
+
+    [ShowIf("useDistanceTrigger"), SerializeField, Indent]
+    private UnityEvent onDistanceExit;
 
     private bool _firstDistanceEnter = true;
     private bool _alreadyInDistance;
@@ -48,15 +61,23 @@ public abstract class InteractionTrigger : MonoBehaviour
 
     #region Lookat
 
-    [Header("LookAt Trigger"), Space(5)] [SerializeField]
+    [Title("LookAt Trigger"), Space, SerializeField]
     private bool useLookAtTrigger;
 
-    [SerializeField] private float lookAtAngle = 25f;
-    [SerializeField] private float lookAtDistance;
+    [ShowIf("useLookAtTrigger"), SerializeField, Indent]
+    protected float lookAtAngle = 25f;
 
-    [Space(5)] [SerializeField] private UnityEvent onLookAtFirstEnter;
-    [SerializeField] private UnityEvent onLookAtEnter;
-    [SerializeField] private UnityEvent onLookAtDistanceExit;
+    [ShowIf("useLookAtTrigger"), SerializeField, Indent]
+    protected float lookAtDistance;
+
+    [Space, ShowIf("useLookAtTrigger"), SerializeField, Indent]
+    private UnityEvent onLookAtFirstEnter;
+
+    [ShowIf("useLookAtTrigger"), SerializeField, Indent]
+    private UnityEvent onLookAtEnter;
+
+    [ShowIf("useLookAtTrigger"), SerializeField, Indent]
+    private UnityEvent onLookAtDistanceExit;
 
     private bool _firstLookAtEnter = true;
     private bool _alreadyLookAt;
@@ -65,20 +86,33 @@ public abstract class InteractionTrigger : MonoBehaviour
 
     #region "unity events"
 
-    [Header("Events Triggers"), Space(5)]
-    [SerializeField] private bool useEventsTriggers;
+    [Title("Events Triggers"), Space, SerializeField]
+    private bool useEventsTriggers;
 
-    [SerializeField] private bool useStartTrigger;
-    [SerializeField] private UnityEvent onStart;
+    [Space,ShowIf("useEventsTriggers"), SerializeField, Indent]
+    private bool useStartTrigger;
 
-    [SerializeField] private bool useOnEnableTrigger;
-    [SerializeField] private UnityEvent onEnable;
+    [ShowIf("@this.useEventsTriggers && this.useStartTrigger"), SerializeField, Indent(2)]
+    private UnityEvent onStart;
 
-    [SerializeField] private bool useUpdateTrigger;
-    [SerializeField] private UnityEvent onUpdate;
+    [ShowIf("useEventsTriggers"), SerializeField, Indent]
+    private bool useOnEnableTrigger;
 
-    [SerializeField] private bool useOnDisableTrigger;
-    [SerializeField] private UnityEvent onDisable;
+    [ShowIf("@this.useEventsTriggers && this.useOnEnableTrigger"), SerializeField, Indent(2)]
+    private UnityEvent onEnable;
+
+    [ShowIf("useEventsTriggers"), SerializeField, Indent]
+    private bool useUpdateTrigger;
+
+    [ShowIf("@this.useEventsTriggers && this.useUpdateTrigger"), SerializeField, Indent(2),
+     InfoBox("WAIT, ARE YOU SURE YOU NEED THIS??", InfoMessageType.Warning, "useUpdateTrigger")]
+    private UnityEvent onUpdate;
+
+    [ShowIf("useEventsTriggers"), SerializeField, Indent]
+    private bool useOnDisableTrigger;
+
+    [ShowIf("@this.useEventsTriggers && this.useOnDisableTrigger"), SerializeField, Indent(2)]
+    private UnityEvent onDisable;
 
     #endregion
 
@@ -86,7 +120,14 @@ public abstract class InteractionTrigger : MonoBehaviour
 
     private GameObject _player;
     private Transform _playerTransform;
-    private const int CheckRateFreq = 25;
+    protected const int CheckRateFreq = 25;
+
+    #endregion
+
+    #region Setting
+
+    [Space, Title("Setting", bold: false), SerializeField]
+    protected bool debugMode = false;
 
     #endregion
 
@@ -102,13 +143,13 @@ public abstract class InteractionTrigger : MonoBehaviour
         _playerTransform = _player.transform;
 
         if (useEventsTriggers && useStartTrigger)
-            onStart?.Invoke();
+            TriggerOnStart();
     }
 
     protected virtual void OnEnable()
     {
         if (useEventsTriggers && useOnEnableTrigger)
-            onEnable?.Invoke();
+            TriggerOnEnable();
     }
 
     protected virtual void Update()
@@ -121,23 +162,21 @@ public abstract class InteractionTrigger : MonoBehaviour
             {
                 if (_firstDistanceEnter)
                 {
-                    Debug.Log("onDistanceFirstEnter is triggered on " + gameObject.name);
-                    onDistanceFirstEnter?.Invoke();
+                    TriggerOnDistanceFirstEnter();
                     _firstDistanceEnter = false;
                 }
 
-                onDistanceEnter?.Invoke();
+                TriggerOnDistanceEnter();
                 _alreadyInDistance = true;
             }
             else if (!InDistance(distance) && _alreadyInDistance)
             {
-                Debug.Log("onDistanceExit is triggered on " + gameObject.name);
-                onDistanceExit?.Invoke();
+                TriggerOnDistanceExit();
                 _alreadyInDistance = false;
             }
 
             if (useEventsTriggers && useUpdateTrigger)
-                onUpdate?.Invoke();
+                TriggerOnUpdate();
         }
 
         if (useLookAtTrigger)
@@ -145,23 +184,22 @@ public abstract class InteractionTrigger : MonoBehaviour
             if (!CheckRateLimiter(CheckRateFreq)) return;
             if (InDistance(lookAtDistance) && !_alreadyLookAt)
             {
-                if (Vector3.Angle(_playerTransform.forward, (transform.position - _playerTransform.position).normalized) <= lookAtAngle)
+                if (Vector3.Angle(_playerTransform.forward,
+                        (transform.position - _playerTransform.position).normalized) <= lookAtAngle)
                 {
                     if (_firstLookAtEnter)
                     {
-                        Debug.Log("onLookAtFirstEnter is triggered on " + gameObject.name);
-                        onLookAtFirstEnter?.Invoke();
+                        TriggerOnLookAtFirstEnter();
                         _firstLookAtEnter = false;
                     }
 
-                    onLookAtEnter?.Invoke();
+                    TriggerOnLookAtEnter();
                     _alreadyLookAt = true;
                 }
             }
             else if (!InDistance(lookAtDistance) && _alreadyLookAt)
             {
-                Debug.Log("onLookAtDistanceExit is triggered on " + gameObject.name);
-                onLookAtDistanceExit?.Invoke();
+                TriggerOnLookAtExit();
                 _alreadyLookAt = false;
             }
         }
@@ -170,7 +208,7 @@ public abstract class InteractionTrigger : MonoBehaviour
     protected virtual void OnDisable()
     {
         if (useEventsTriggers && useOnDisableTrigger)
-            onDisable?.Invoke();
+            TriggerOnDisable();
     }
 
     protected bool InDistance(float dist)
@@ -185,13 +223,11 @@ public abstract class InteractionTrigger : MonoBehaviour
 
         if (_firstColliderEnter)
         {
-            Debug.Log("onTriggerFirstEnter is triggered on " + gameObject.name);
-            onTriggerFirstEnter?.Invoke();
+            TriggerOnTriggerFirstEnter();
             _firstColliderEnter = false;
         }
 
-        Debug.Log("onTriggerEnter is triggered on " + gameObject.name);
-        onTriggerEnter?.Invoke();
+        TriggerOnTriggerEnter();
     }
 
     protected virtual void OnTriggerExit(Collider other)
@@ -199,11 +235,12 @@ public abstract class InteractionTrigger : MonoBehaviour
         if (!useColliderTrigger) return;
         if (!other.CompareTag("Player")) return;
 
-        Debug.Log("onTriggerExit is triggered on " + gameObject.name);
-        onTriggerExit?.Invoke();
+        TriggerOnTriggerExit();
     }
 
-    public virtual void OnTriggerStay(Collider other) {}
+    public virtual void OnTriggerStay(Collider other)
+    {
+    }
 
     protected void CheckAndInitSetting()
     {
@@ -256,61 +293,93 @@ public abstract class InteractionTrigger : MonoBehaviour
 
     public virtual void TriggerOnTriggerFirstEnter()
     {
+        if (debugMode)
+            if (debugMode)
+                Debug.Log("onTriggerFirstEnter is triggered on " + gameObject.name);
         onTriggerFirstEnter?.Invoke();
     }
 
     public virtual void TriggerOnTriggerEnter()
     {
+        if (debugMode)
+            Debug.Log("onTriggerEnter is triggered on " + gameObject.name);
         onTriggerEnter?.Invoke();
     }
 
     public virtual void TriggerOnTriggerExit()
     {
+        if (debugMode)
+            Debug.Log("onTriggerExit is triggered on " + gameObject.name);
         onTriggerExit?.Invoke();
     }
 
     public virtual void TriggerOnDistanceFirstEnter()
     {
+        if (debugMode)
+            Debug.Log("onDistanceFirstEnter is triggered on " + gameObject.name);
         onDistanceFirstEnter?.Invoke();
     }
 
     public virtual void TriggerOnDistanceEnter()
     {
+        if (debugMode)
+            Debug.Log("onDistanceEnter is triggered on " + gameObject.name);
         onDistanceEnter?.Invoke();
     }
 
     public virtual void TriggerOnDistanceExit()
     {
+        if (debugMode)
+            Debug.Log("onDistanceExit is triggered on " + gameObject.name);
         onDistanceExit?.Invoke();
     }
 
     public virtual void TriggerOnLookAtFirstEnter()
     {
+        if (debugMode)
+            Debug.Log("onLookAtFirstEnter is triggered on " + gameObject.name);
         onLookAtFirstEnter?.Invoke();
     }
 
     public virtual void TriggerOnLookAtEnter()
     {
+        if (debugMode)
+            Debug.Log("onLookAtEnter is triggered on " + gameObject.name);
         onLookAtEnter?.Invoke();
     }
 
     public virtual void TriggerOnLookAtExit()
     {
+        if (debugMode)
+            Debug.Log("onLookAtExit is triggered on " + gameObject.name);
         onLookAtDistanceExit?.Invoke();
     }
 
     public virtual void TriggerOnStart()
     {
+        if (debugMode)
+            Debug.Log("onStart is triggered on " + gameObject.name);
         onStart?.Invoke();
     }
 
     public virtual void TriggerOnEnable()
     {
+        if (debugMode)
+            Debug.Log("onEnable is triggered on " + gameObject.name);
         onEnable?.Invoke();
+    }
+
+    public virtual void TriggerOnUpdate()
+    {
+        if (debugMode)
+            Debug.Log("onEnable is triggered on " + gameObject.name);
+        onUpdate?.Invoke();
     }
 
     public virtual void TriggerOnDisable()
     {
+        if (debugMode)
+            Debug.Log("onDisable is triggered on " + gameObject.name);
         onDisable?.Invoke();
     }
 
