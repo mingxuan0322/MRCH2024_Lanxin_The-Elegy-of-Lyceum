@@ -42,7 +42,7 @@ public abstract class InteractionTrigger : MonoBehaviour
     [Title("Distance Trigger"), Space, SerializeField]
     private bool useDistanceTrigger;
 
-    [ShowIf("useDistanceTrigger"), SerializeField, Indent]
+    [ShowIf("useDistanceTrigger"), SerializeField, Indent, Unit(Units.Meter)]
     protected float distance = 10f;
 
     [Space, ShowIf("useDistanceTrigger"), SerializeField, Indent]
@@ -64,10 +64,10 @@ public abstract class InteractionTrigger : MonoBehaviour
     [Title("LookAt Trigger"), Space, SerializeField]
     private bool useLookAtTrigger;
 
-    [ShowIf("useLookAtTrigger"), SerializeField, Indent]
+    [ShowIf("useLookAtTrigger"), SerializeField, Indent, Unit(Units.Degree)]
     protected float lookAtAngle = 25f;
 
-    [ShowIf("useLookAtTrigger"), SerializeField, Indent]
+    [ShowIf("useLookAtTrigger"), SerializeField, Indent, Unit(Units.Meter)]
     protected float lookAtDistance;
 
     [Space, ShowIf("useLookAtTrigger"), SerializeField, Indent]

@@ -2,7 +2,7 @@
 
 ## Tips Before You Start:
 
-1. The texts included in the project template are written in Markdown format. For an easier reading experience, consider using a Markdown reader or installing a Markdown extension in your programming IDE.
+1. The texts included in the project template are written in Markdown format. For an easier reading experience, consider using a Markdown reader or installing a Markdown extension in your programming IDE. With them you can see the structure of the Documentation.md and save your time.
 
 2. It is recommended to use [GitHub Desktop](https://desktop.github.com/) for easier control of changes and updates from Shengyang’s side, or for team collaboration (further setup is needed).
 

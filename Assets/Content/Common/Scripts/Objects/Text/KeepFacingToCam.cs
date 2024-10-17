@@ -36,6 +36,6 @@ public abstract class KeepFacingToCam : MonoBehaviour
 
     public virtual void SetFaceToCam(bool target)
     {
-        _faceToCam = false;
+        _faceToCam = target;
     }
 }

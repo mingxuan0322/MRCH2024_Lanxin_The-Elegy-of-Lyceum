@@ -18,11 +18,11 @@ public abstract class ObjectToolset : MonoBehaviour
         }
     }
 
-    public virtual void ToggleObjectEnabled(GameObject gameObject)
+    public virtual void ToggleObjectEnabled(GameObject go)
     {
-        if (gameObject != null)
+        if (go != null)
         {
-            gameObject.SetActive(!gameObject.activeSelf);
+            go.SetActive(!go.activeSelf);
         }
     }
 }

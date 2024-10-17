@@ -14,7 +14,7 @@ public abstract class SimpleTmpTypewriter : MonoBehaviour
 
     [SerializeField, ReadOnly] protected TextMeshPro text;
 
-    [CanBeNull, AssetsOnly] protected AudioSource _typeAudioSource;
+    [CanBeNull, AssetsOnly] protected AudioSource TypeAudioSource;
 
     [Title("Content to type", bold: false),
      InfoBox("Put the content you want to type in the text area, the content of the TMP component will be ignored",
@@ -23,16 +23,16 @@ public abstract class SimpleTmpTypewriter : MonoBehaviour
     [MultiLineProperty(8), SerializeField]
     protected string contentToType;
 
-    [SerializeField] protected float TypeSpeed = 0.1f;
+    [SerializeField, Unit(Units.Second)] protected float TypeSpeed = 0.1f;
 
     [Title("Setting")] [SerializeField] protected bool typeOnEnable = false;
 
 
-    [SerializeField] protected bool onlyTypeForTheFirstTime = false;
-    [SerializeField] protected bool saveCrossScene = false;
+    [SerializeField,ShowIf("typeOnEnable")] protected bool onlyTypeForTheFirstTime = false;
+    [SerializeField,ShowIf("@typeOnEnable && onlyTypeForTheFirstTime")] protected bool saveCrossScene = false;
 
     [CanBeNull, SerializeField,
-     InfoBox("If you need to play a sound when typing, you need to set the AudioSource up and audioclip here"), Space]
+     InfoBox("If you need to play a sound when typing, you need to have a AudioSource on this object and audioclip here"), Space]
     protected AudioClip typeSound;
 
     protected bool _isPlayed = false;
@@ -49,7 +49,7 @@ public abstract class SimpleTmpTypewriter : MonoBehaviour
             Debug.LogWarning("Check the tmp/tmpUI component on " + gameObject.name);
         }
 
-        TryGetComponent(out _typeAudioSource); // Try to get the AudioSource component
+        TryGetComponent(out TypeAudioSource); // Try to get the AudioSource component
     }
 
     protected virtual void OnEnable()
@@ -101,8 +101,8 @@ public abstract class SimpleTmpTypewriter : MonoBehaviour
         {
             if (text) text.text += c;
             if (textUI) textUI.text += c;
-            if (typeSound && _typeAudioSource)
-                _typeAudioSource.PlayOneShot(typeSound);
+            if (typeSound && TypeAudioSource)
+                TypeAudioSource.PlayOneShot(typeSound);
             yield return new WaitForSeconds(TypeSpeed);
         }
 
