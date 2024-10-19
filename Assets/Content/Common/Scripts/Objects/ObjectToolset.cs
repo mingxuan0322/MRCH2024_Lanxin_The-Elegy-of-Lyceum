@@ -3,26 +3,29 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public abstract class ObjectToolset : MonoBehaviour
+namespace MRCH.Common.Interact
 {
-    [InfoBox("Includes ToggleComponentEnabled for components and ToggleObjectEnabled for objects")]
-    public virtual void ToggleComponentEnabled(Component component)
+    public abstract class ObjectToolset : MonoBehaviour
     {
-        if (component is Behaviour behaviourComponent)
+        [InfoBox("Includes ToggleComponentEnabled for components and ToggleObjectEnabled for objects")]
+        public virtual void ToggleComponentEnabled(Component component)
         {
-            behaviourComponent.enabled = !behaviourComponent.enabled;
+            if (component is Behaviour behaviourComponent)
+            {
+                behaviourComponent.enabled = !behaviourComponent.enabled;
+            }
+            else
+            {
+                Debug.LogWarning("The provided component doesn't have an 'enabled' property.");
+            }
         }
-        else
-        {
-            Debug.LogWarning("The provided component doesn't have an 'enabled' property.");
-        }
-    }
 
-    public virtual void ToggleObjectEnabled(GameObject go)
-    {
-        if (go != null)
+        public virtual void ToggleObjectEnabled(GameObject go)
         {
-            go.SetActive(!go.activeSelf);
+            if (go != null)
+            {
+                go.SetActive(!go.activeSelf);
+            }
         }
     }
 }

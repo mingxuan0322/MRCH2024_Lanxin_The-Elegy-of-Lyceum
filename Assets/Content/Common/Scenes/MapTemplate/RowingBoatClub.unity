@@ -1918,8 +1918,7 @@ MonoBehaviour:
   textUI: {fileID: 0}
   text: {fileID: 0}
   cycleTime: 2
-  _elapsedTime: 0
-  playOnAwake: 0
+  playOnAwake: 1
 --- !u!1 &1535508121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,8 +2364,7 @@ MonoBehaviour:
   textUI: {fileID: 0}
   text: {fileID: 0}
   cycleTime: 2
-  _elapsedTime: 0
-  playOnAwake: 0
+  playOnAwake: 1
 --- !u!1001 &2071747924
 PrefabInstance:
   m_ObjectHideFlags: 0

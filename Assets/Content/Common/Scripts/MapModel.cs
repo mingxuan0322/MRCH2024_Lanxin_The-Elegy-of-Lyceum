@@ -1,14 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MapModel : MonoBehaviour
+namespace MRCH.Common.Tool
 {
-    private void Awake()
+    [AddComponentMenu("MRCH-Interact/Tool/Map Model")]
+    public class MapModel : MonoBehaviour
     {
+        void Awake()
+        {
+#if !UNITY_EDITOR
+            // Disable the GameObject and its children for builds
+            gameObject.SetActive(false);
+#endif
+        }
+
 #if UNITY_EDITOR
-        gameObject.hideFlags = HideFlags.DontSaveInBuild;
-        // This may prevent the reference model from being saved into the build.
+        void OnValidate()
+        {
+            // Ensure this GameObject and its children are hidden in the Editor, but don't save them in builds
+            gameObject.hideFlags = HideFlags.HideInHierarchy | HideFlags.DontSaveInBuild;
+            foreach (Transform child in transform)
+            {
+                child.gameObject.hideFlags = HideFlags.HideInHierarchy | HideFlags.DontSaveInBuild;
+            }
+        }
 #endif
     }
 }

@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: NvQingNian_Outside
-    second: {fileID: 2800000, guid: d8a742e26f76bb24b93bb22bb958b062, type: 3}
+    second: {fileID: 2800000, guid: b0b9049548a7ff74bb38ee93b26d57bb, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

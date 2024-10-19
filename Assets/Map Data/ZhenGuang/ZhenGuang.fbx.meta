@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: ZhenGuang
-    second: {fileID: 2800000, guid: 44de85ced6c8472498de08812c85de4f, type: 3}
+    second: {fileID: 2800000, guid: 3bb2af556b13be64ba8d3da1ce52ccfe, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

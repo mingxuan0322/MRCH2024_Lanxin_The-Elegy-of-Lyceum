@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Ampier
-    second: {fileID: 2800000, guid: c92ce15389eeae546af713dcd26e227e, type: 3}
+    second: {fileID: 2800000, guid: 8afd2c5aecc76ff4db627386384030c1, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

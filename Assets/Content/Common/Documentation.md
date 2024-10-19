@@ -1,9 +1,5 @@
 # MRCH Template Documentation + Manual
 
-v1.0, 10.17.2024, by Shengyang: Finished the rough documentation and asked AI to improve it. So, you may see the style is not unified. I guess it’s fine... Anyway I will probably keep improve it later.
-
-------
-
 ## Tips Before You Start
 
 - Please read the `QuickStart.md` file in the same folder before proceeding.
@@ -311,6 +307,12 @@ This component simulates a typewriter effect for both `TextMeshPro - Text` and `
 
 #### Settings
 
+##### Start New Line When Overflow
+
+- **Type**: `boolean`
+- **Description**: 
+- It will start a new line in advance if the text overflows when typing the next word. It is recommended to enable, especially if it is in English-like language. However, if the width is too short or it is Chinese, it might be fine to disable it.
+
 ##### Type On Enable
 
 - **Type**: `boolean`
@@ -404,3 +406,28 @@ A component for objects that respond to touch events.
 
 - **Type**: `UnityEvent`
 - **Description**: Triggered when a successful touch on this object occurs if `isReturn` is enabled.
+
+# Environmental Occlusion Culling
+
+### Description
+
+To bring better AR experience, or want your content to have a better connection to reality (Wow that’s Mixed Reality!). The environmental occlusion is essential element. In the template, Prof. Zhang wrote a out-of-box shader to use for the environmental buildings to mask the virtual content. You can find it at `Assets/Plugins/Occlusion/Occlusion_Mat.mat`, or in your MapTemplate, the invisible cubes under `XR Space>Occlusion Culling` all have been assigned with this material. 
+
+### How to enable the environmental occlusion culling
+
+1. Make sure the shapes that mimics the surrounding buildings has been assigned with the material mentioned above. 
+2. The visible and culling-able objects are not using the default materials, because they are not adjustable. 
+3. **Go to the materials (component), then navigate to ‘Advanced Options’, adjust the ‘Sorting Priority’ higher**. 
+4. All done and you can test now!
+
+# Optional: Modify or Inherit Common Scripts
+
+Most of the scripts in the common folders are ‘abstract’, or say inheritable, and most of the functions are ‘virtual’ or say overridable. 
+
+Here are some materials you can learn from to know about how inheriting and overriding work in Unity C#:
+
+* [C# Overriding in Unity! - Intermediate Scripting Tutorial](https://youtu.be/h0J4gs4DW5A?si=jgqt5dqfbGeZA4xB)
+* [override (C# reference)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/override)
+* [Protected, Virtual, Abstract methods - What are they and when to use them?](https://www.reddit.com/r/Unity3D/comments/5rmj0v/protected_virtual_abstract_methods_what_are_they/) 
+
+If you get lost and you are sure that you need to modify the common scripts, you can of course ask Shengyang for help!

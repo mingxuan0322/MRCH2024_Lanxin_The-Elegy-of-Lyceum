@@ -1,36 +1,40 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
-public abstract class TouchableObject : MonoBehaviour
+namespace MRCH.Common.Interact
 {
-    [Title("Setting")] public bool isReturn = false;
-    [SerializeField,HideIf("isReturn"),Space] private UnityEvent onTouchEvent;
-    [SerializeField,ShowIf("isReturn"),InfoBox("It would trigger the OnReturnEvent first then the UniversalReturnEvent on TouchManager"),Space] 
-    public UnityEvent onReturnEvent;
-
-    protected virtual void Start()
+    public abstract class TouchableObject : MonoBehaviour
     {
-        if(gameObject.layer == 0)
-            Debug.LogWarning($"{gameObject.name} is on the Default Layer, do you need to assign it to a specific touchable layer?");
-    }
+        [Title("Setting")] public bool isReturn = false;
 
-    public virtual void OnTouch()
-    {
-        if (isReturn)
+        [SerializeField, HideIf("isReturn"), Space]
+        private UnityEvent onTouchEvent;
+
+        [SerializeField, ShowIf("isReturn"),
+         InfoBox("It would trigger the OnReturnEvent first then the UniversalReturnEvent on TouchManager"), Space]
+        public UnityEvent onReturnEvent;
+
+        protected virtual void Start()
         {
-            Debug.Log($"Return event on {gameObject.name} triggerred");
-            onReturnEvent?.Invoke();
+            if (gameObject.layer == 0)
+                Debug.LogWarning(
+                    $"{gameObject.name} is on the Default Layer, do you need to assign it to a specific touchable layer?");
         }
-        else
+
+        public virtual void OnTouch()
         {
-            Debug.Log($"Touch event on {gameObject.name} triggerred");
-            onTouchEvent?.Invoke();
+            if (isReturn)
+            {
+                Debug.Log($"Return event on {gameObject.name} triggerred");
+                onReturnEvent?.Invoke();
+            }
+            else
+            {
+                Debug.Log($"Touch event on {gameObject.name} triggerred");
+                onTouchEvent?.Invoke();
+            }
+
         }
-        
     }
 }

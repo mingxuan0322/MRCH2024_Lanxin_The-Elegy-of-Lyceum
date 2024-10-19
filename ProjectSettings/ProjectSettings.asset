@@ -162,7 +162,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.MixedRealityandCulturalHeritage.MRCHExample
-    Standalone: com.Mixed-Reality-and-Cultural-Heritage.MRCH
+    Standalone: com.Mixed-Reality-and-Cultural-Heritage.MRCH-Example
     iPhone: com.Mixed-Reality-and-Cultural-Heritage.MRCH-Example
   buildNumber:
     Standalone: 0
@@ -991,7 +991,7 @@ PlayerSettings:
   hmiLogStartupTiming: 0
   hmiCpuConfiguration: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 2
+  activeInputHandler: 1
   windowsGamepadBackendHint: 0
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
