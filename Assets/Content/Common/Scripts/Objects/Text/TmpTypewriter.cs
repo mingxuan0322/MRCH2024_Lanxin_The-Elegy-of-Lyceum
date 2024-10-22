@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 namespace MRCH.Common.Interact
 {
-    public abstract class SimpleTmpTypewriter : MonoBehaviour
+    public abstract class TmpTypewriter : MonoBehaviour
     {
         [SerializeField, ReadOnly] protected TextMeshProUGUI textUI;
 

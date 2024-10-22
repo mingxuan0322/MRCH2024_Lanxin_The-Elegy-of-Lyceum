@@ -407,6 +407,40 @@ A component for objects that respond to touch events.
 - **Type**: `UnityEvent`
 - **Description**: Triggered when a successful touch on this object occurs if `isReturn` is enabled.
 
+------
+
+### AudioController
+
+A component for audio fade in and fade out.
+
+#### Inspector Variables
+
+##### FadeDuration
+
+- **Type**: `float`
+- **Description**: The time duration to fade in and fade out.
+
+##### Taget Volume
+
+- **Type**: `float`
+- **Range**: 0 - 1
+- **Description**: The audio volume to be set for the audio source.
+
+#### Public Methods
+
+##### FadeInAudioToTargetVolume()
+
+* **Description**: It would fade in the audio in the [FadeDuration] seconds to the [TargetVolume]. You can use it as a better AudioSource.PlayAudio().
+
+##### FadeOutAudio()
+
+* **Description**: It would fade out the audio. You can use it as a better AudioSource.Stop()
+
+##### SetVolumeTo(float)
+
+* **Parameter**:  the volume, (float)
+* **Description**: It would Set the  [TargetVolume] to a new value.
+
 # Environmental Occlusion Culling
 
 ### Description

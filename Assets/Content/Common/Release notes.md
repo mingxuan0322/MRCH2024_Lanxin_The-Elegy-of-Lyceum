@@ -1,26 +1,37 @@
 # Release notes for MRCH Template
 
+## v1.2
+
+Date: 10.22.2024, by Shengyang and Ian
+
+Github Commit Hash: ba1418ec7057c2b5b998b1c3624682eda7caf4ff & [ToBeFilledNextTime]
+
+Changes: 
+
+* Add an `AudioController.cs` for audio FadeIn and FadeOut.
+* Asked GPT to fix the grammer issues of the release note of last time.
+
 ## v1.1
 
 Date: 10.19.2024, by Shengyang
 
-Github Commit Hash: [ToBeFilledNextTime]
+Github Commit Hash: c2b83b2797506efc76aa6f15e02e1dd88a24c20c
 
 Changes:
 
-* Update the structure of the abstract scripts and wrappers. They are now under different namespaces.
-* Changed the input from the mix of input manager and input system to sole Input System. Fixed the problem of Screen Touching. You now can test touch interactions in the editor runtime under both Game and Simulator modes.
-* Improved the MapModel script. They should not be loaded into the built version to reduce the size of the package and improve the efficiency.
-* Added ‘Start New Line When Overflow’ option to Simple TMP Typewriter to improve the typing process of especially English text. (It is not simple anymore hahaha.)
-* **Added ‘XR Origin Editor Controller’, now you can use WASD to move in the editor, IJKL or right click mouse to rotate the camera to have a quick test of your interactions.**
-* Made more variables are now open to inherit.
-* Fixed the problem
+* Updated the structure of abstract scripts and wrappers. They are now organized under separate namespaces.
+* Changed the input system from a combination of the Input Manager and Input System to using only the Input System. Fixed the issue with screen touch handling. You can now test touch interactions in the editor runtime in both Game and Simulator modes.
+* Improved the `MapModel` script. It is now excluded from the built version to reduce the package size and improve efficiency.
+* Added a ‘Start New Line When Overflow’ option to the Simple TMP Typewriter to enhance the typing process, especially for English text. (It’s not so simple anymore, haha.)
+* **Added the ‘XR Origin Editor Controller’. You can now use WASD to move in the editor and IJKL or right-click to rotate the camera for quick testing of your interactions.**
+* Exposed more variables for inheritance.
+* Fixed several issues.
 
 Known Issues:
 
-* Some initializations should not be done when starts but after localization finished. It would mostly affect some functions in MoveAndRotate when “back to initial position”.
-* Some Text on the screen doesn’t appear correctly.
-* You may fail to find the map model GameObject in the scene. You can RE-extract textures manually to fix the problem.
+* Some initializations should be delayed until localization is completed. This primarily affects certain functions in `MoveAndRotate` when returning to the initial position.
+* Some on-screen text does not display correctly.
+* You may not be able to locate the Map Model GameObject in the scene. Manually re-extracting textures can resolve this issue.
 
 ## v1.0
 
