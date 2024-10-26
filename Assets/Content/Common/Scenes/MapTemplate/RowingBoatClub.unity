@@ -509,6 +509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 322393157}
   - component: {fileID: 322393156}
+  - component: {fileID: 322393158}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Player
@@ -549,6 +550,23 @@ Transform:
   - {fileID: 1535508122}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &322393158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322393155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d5a6f56161ec4458752b15804aa106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  fastMoveSpeed: 6
+  elevationSpeed: 2
+  rotationSpeed: 15
+  keyboardRotationMultiplier: 3
 --- !u!1001 &536623614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -739,18 +757,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4174534150879381888, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
       propertyPath: OnFirstSuccessfulLocalization.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4174534150879381888, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
       propertyPath: OnFirstSuccessfulLocalization.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4174534150879381888, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+      propertyPath: OnFirstSuccessfulLocalization.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174534150879381888, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
       propertyPath: OnFirstSuccessfulLocalization.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1993451173}
     - target: {fileID: 4174534150879381888, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+      propertyPath: OnFirstSuccessfulLocalization.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 786826098}
+    - target: {fileID: 4174534150879381888, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
       propertyPath: OnFirstSuccessfulLocalization.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174534150879381888, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+      propertyPath: OnFirstSuccessfulLocalization.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4174534150879381888, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
@@ -758,11 +788,23 @@ PrefabInstance:
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 4174534150879381888, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+      propertyPath: OnFirstSuccessfulLocalization.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: FirstLocalizedBroadcaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174534150879381888, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
       propertyPath: OnFirstSuccessfulLocalization.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4174534150879381888, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+      propertyPath: OnFirstSuccessfulLocalization.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MRCH.Common.Tool.EventBroadcaster, MRCH.Common.Tool
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174534150879381888, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
       propertyPath: OnFirstSuccessfulLocalization.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4174534150879381888, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+      propertyPath: OnFirstSuccessfulLocalization.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
@@ -775,7 +817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
       propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
       propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -786,6 +828,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+      propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
       propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1457327626}
@@ -794,11 +840,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1993451173}
     - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+      propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 786826098}
+    - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
       propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
       propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+      propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
@@ -810,6 +864,10 @@ PrefabInstance:
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+      propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: InitializedBroadcaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
       propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
@@ -818,7 +876,15 @@ PrefabInstance:
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+      propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: MRCH.Common.Tool.EventBroadcaster, MRCH.Common.Tool
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
       propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+      propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
@@ -829,10 +895,17 @@ PrefabInstance:
       propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4876485604010972054, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+      propertyPath: OnInitializationComplete.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1434895627878410, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 786826098}
   m_SourcePrefab: {fileID: 100100000, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
 --- !u!114 &786826096 stripped
 MonoBehaviour:
@@ -843,6 +916,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8be42d7c34a64923aa637c8abcaeb7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &786826097 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1434895627878410, guid: 2c6deb7afc7d34561941b1429c48ffaf, type: 3}
+  m_PrefabInstance: {fileID: 786826095}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &786826098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786826097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6125ad1f30212ca4685fad86d17529b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &796607211

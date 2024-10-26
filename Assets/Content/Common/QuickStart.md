@@ -54,3 +54,20 @@
   - Unity Forum - [UnityEvent, Where Have You Been All My Life?](https://discussions.unity.com/t/unityevent-where-have-you-been-all-my-life/577808) (lol)
 
 OK... I believe you now have a basic idea of what to do... I hope so, hahaha!
+
+
+
+## v1.3 Update Guidance
+
+### Applying the New `EventBroadcaster` to Your Scene
+
+1. In your scene, locate the **ImmersalSDK** component. Click **Add Component**, then navigate to `MRCH-Interact => Tool => Event Broadcaster`. It is recommended to add it to the **ImmersalSDK** for optimal functionality.
+2. For the `On Initialization Complete()` event, add a new event. Drag the **Event Broadcaster** into this section, then select `EventBroadcaster.InitializedBroadcaster`.
+3. Next, go to the **ImmersalSDK/Localizer** object. Add a new event to `On First Successful Localization()`. Drag the **ImmersalSDK** object into this section and choose `EventBroadcaster.FirstLocalizedBroadcaster`.
+4. ***Optional:*** If desired (though not utilized in Shengyang's implementation), repeat this process for `ImmersalSDK => On Reset()` and `ImmersalSDK/Localizer => On Successful Localizations(int32[])`.
+
+### Applying the New `XR Origin Editor Controller` to Your Scene
+
+1. Locate the **XR Origin** in your scene.
+2. Click **Add Component**, then navigate to `MRCH-Interact => Tool => XR Origin Editor Controller`.
+3. You can now move using the WASD keys and rotate with the IJKL keys or mouse movement while holding down the right mouse button.

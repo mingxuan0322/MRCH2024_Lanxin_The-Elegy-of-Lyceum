@@ -1,10 +1,26 @@
 # Release notes for MRCH Template
 
+## v1.3
+
+Date: 10.26.2024, by Shengyang
+
+GitHub Commit Hash: [ToBeFilledNextTime]
+
+**Changes:**
+
+- Introduced `EventBroadcaster.cs` to broadcast `Initialized` and `Reset` events for the ImmersalSDK component, along with `FirstLocalized` and `SuccessfulLocalized` events for the Localizer component. Refer to **QuickStart.md** for instructions on how to implement these updates in your scene, or you can copy from the updated template scene.
+- Added `XR Origin Editor Controller` to the template scenes. For details on how to apply it to your scenes, see **QuickStart.md** or copy the template scenes directly.
+- Enhanced `MoveAndRotate` with options for movement and rotation following the first successful localization.
+
+**Fixed:**
+
+- Resolved an issue where `MoveAndRotate` was initialized on `FirstLocalized` instead of during the awake phase.
+
 ## v1.2
 
 Date: 10.22.2024, by Shengyang and Ian
 
-Github Commit Hash: ba1418ec7057c2b5b998b1c3624682eda7caf4ff & [ToBeFilledNextTime]
+GitHub Commit Hash: ba1418ec7057c2b5b998b1c3624682eda7caf4ff & 14516e0676a665463889ab223615b401d7c3b8a9
 
 Changes: 
 
@@ -23,7 +39,7 @@ Changes:
 * Changed the input system from a combination of the Input Manager and Input System to using only the Input System. Fixed the issue with screen touch handling. You can now test touch interactions in the editor runtime in both Game and Simulator modes.
 * Improved the `MapModel` script. It is now excluded from the built version to reduce the package size and improve efficiency.
 * Added a ‘Start New Line When Overflow’ option to the Simple TMP Typewriter to enhance the typing process, especially for English text. (It’s not so simple anymore, haha.)
-* **Added the ‘XR Origin Editor Controller’. You can now use WASD to move in the editor and IJKL or right-click to rotate the camera for quick testing of your interactions.**
+* **Added the `XR Origin Editor Controller`. You can now use WASD to move in the editor and IJKL or right-click to rotate the camera for quick testing of your interactions.**
 * Exposed more variables for inheritance.
 * Fixed several issues.
 

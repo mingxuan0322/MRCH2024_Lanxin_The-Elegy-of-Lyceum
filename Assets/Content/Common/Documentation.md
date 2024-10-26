@@ -175,11 +175,14 @@ OR
 - **Move Speed** (float): Reference move speed. If a move type other than `Linear` is used, the speed is only for reference.
 - **Move For Once On Enable** (boolean): Determines if the object moves to the Move Target upon enabling. Use `MoveBackForOnce()` or `JumpBackToInitialPosition()` for multiple movements.
 - **Move Forth And Back On Enable** (boolean): Determines if the object moves back and forth between its original position and the Move Target upon enabling.
+- **Move For Once After Localized** (boolean): Determines if the object moves to the Move Target after the first successful localization.
+- **Move Forth And Back After Localized** (boolean): Determines if the object moves back and forth between its original position and the Move Target after the first successful localization.
 - **Move Type** (enum Dotween.MoveType): Default is `In Out Sine`. Experiment with other types to see different effects.
 
 #### Rotate Options
 
-- **Keep Rotating On Enable** (boolean): Determines if the object continues rotating along an axis, with each rotation cycle lasting the specified `Rotate Duration`.
+- **Keep Rotating On Enable** (boolean): Determines if the object continues rotating along an axis, with each rotation cycle lasting the specified `Rotate Duration` upon enabling.
+- **Keep Rotating After Localized** (boolean): Determines if the object continues rotating along an axis, with each rotation cycle lasting the specified `Rotate Duration` after the first successful localization.
 - **Rotation Axis** (Vector3): The axis along which the object will rotate.
 - **Rotate Duration** (float): Time in seconds for a full rotation.
 - **Rotate Type** (enum Dotween.MoveType): Default is `Linear`.
@@ -440,6 +443,30 @@ A component for audio fade in and fade out.
 
 * **Parameter**:  the volume, (float)
 * **Description**: It would Set the  [TargetVolume] to a new value.
+
+------
+
+### EventBroadcaster
+
+A component broadcast `Initialized` and `Reset` events for the ImmersalSDK component, along with `FirstLocalized` and `SuccessfulLocalized` events for the Localizer component. See the QuickStart.md for the usage.
+
+#### Public Methods
+
+##### InitializedBroadcaster()
+
+* **Description**: It would invoke OnInlitialzed Event which is designed to be triggered OnInitializationComplete() UnityEvent of ImmersalSDK.
+
+##### ResetBroadcaster()
+
+* **Description**: It would invoke OnReset Event which is designed to be triggered OnReset() UnityEvent of ImmersalSDK.
+
+##### FirstLocalizedBroadcaster()
+
+* **Description**: It would invoke OnFirstLocalized Event which is designed to be triggered OnFirstSuccessfulLocalization() UnityEvent of Localizer.
+
+##### SuccessfulLocalizationsBroadcaster()
+
+* **Description**: It would invoke OnSuccessfulLocalizations Event which is designed to be triggered OnSuccessfulLocalizations(int32[]) UnityEvent of Localizer.
 
 # Environmental Occlusion Culling
 

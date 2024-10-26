@@ -11,12 +11,25 @@ namespace MRCH.Common.Interact
     {
         [Title("Move Options"), Required] public Transform moveTarget;
         [Unit(Units.MetersPerSecond)] public float moveSpeed = 2f;
-        [HideIf("moveForthAndBackOnEnable")] public bool moveForOnceOnEnable = false;
-        [HideIf("moveForOnceOnEnable")] public bool moveForthAndBackOnEnable = false;
+
+        [HideIf("@moveForthAndBackOnEnable||moveForthAndBackAfterLocalized||moveForOnceAfterLocalized")]
+        public bool moveForOnceOnEnable = false;
+
+        [HideIf("@moveForOnceOnEnable||moveForthAndBackAfterLocalized||moveForOnceAfterLocalized")]
+        public bool moveForthAndBackOnEnable = false;
+
+        [Space, HideIf("@moveForthAndBackAfterLocalized||moveForOnceOnEnable||moveForOnceOnEnable")]
+        public bool moveForOnceAfterLocalized = false;
+
+        [HideIf("@moveForOnceAfterLocalized||moveForOnceOnEnable||moveForOnceOnEnable")]
+        public bool moveForthAndBackAfterLocalized = false;
 
         [Space, SerializeField] protected Ease moveType = Ease.InOutSine;
 
-        [Title("Rotate Options")] public bool keepRotatingOnEnable = false;
+        [Title("Rotate Options")] 
+        public bool keepRotatingOnEnable = false;
+        [HideIf("keepRotatingOnEnable")]
+        public bool keepRotatingAfterLocalized = false;
         public Vector3 rotationAxis = Vector3.up;
 
         [Unit(Units.Second)] public float rotateDuration = 10f;
@@ -28,9 +41,24 @@ namespace MRCH.Common.Interact
         protected Tween _moveTween;
         protected Tween _rotateTween;
 
-        protected virtual void Awake()
+        protected virtual void Initialize()
         {
+            print("Initialized in " + gameObject.name);
             _initialPosition = transform.position;
+
+            if (moveForOnceAfterLocalized)
+            {
+                MoveForOnce();
+            }
+            else if (moveForthAndBackAfterLocalized)
+            {
+                MoveForthAndBack();
+            }
+
+            if (keepRotatingAfterLocalized)
+            {
+                RotateObject();
+            }
         }
 
         protected virtual void OnEnable()
@@ -51,6 +79,8 @@ namespace MRCH.Common.Interact
                 StopPlayingTween(_rotateTween);
                 RotateObject();
             }
+
+            Tool.EventBroadcaster.OnFirstLocalized += Initialize;
         }
 
         public virtual void MoveForOnce()
@@ -121,6 +151,7 @@ namespace MRCH.Common.Interact
             // Kill all tweens on this GameObject when disabled
             transform.DOKill();
             //moveTarget.DOKill();
+            Tool.EventBroadcaster.OnFirstLocalized -= Initialize;
         }
     }
 }
