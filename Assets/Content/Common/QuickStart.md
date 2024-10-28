@@ -61,8 +61,8 @@ OK... I believe you now have a basic idea of what to do... I hope so, hahaha!
 
 ### Applying the New `EventBroadcaster` to Your Scene
 
-1. In your scene, locate the **ImmersalSDK** component. Click **Add Component**, then navigate to `MRCH-Interact => Tool => Event Broadcaster`. It is recommended to add it to the **ImmersalSDK** for optimal functionality.
-2. For the `On Initialization Complete()` event, add a new event. Drag the **Event Broadcaster** into this section, then select `EventBroadcaster.InitializedBroadcaster`.
+1. In your scene, locate the `ImmersalSDK` component. Click **Add Component**, then navigate to `MRCH-Interact => Tool => Event Broadcaster`. It is recommended to add it to the **ImmersalSDK** for easier maintenance.
+2. Find the `Immersal SDK` component on the **ImmersalSDK** object. On the `On Initialization Complete()` event, add a new event. Drag the **Event Broadcaster** into this section, then select `EventBroadcaster.InitializedBroadcaster`.
 3. Next, go to the **ImmersalSDK/Localizer** object. Add a new event to `On First Successful Localization()`. Drag the **ImmersalSDK** object into this section and choose `EventBroadcaster.FirstLocalizedBroadcaster`.
 4. ***Optional:*** If desired (though not utilized in Shengyang's implementation), repeat this process for `ImmersalSDK => On Reset()` and `ImmersalSDK/Localizer => On Successful Localizations(int32[])`.
 

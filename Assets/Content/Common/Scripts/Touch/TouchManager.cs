@@ -2,6 +2,9 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace MRCH.Common.Interact
 {
@@ -9,7 +12,7 @@ namespace MRCH.Common.Interact
     {
         [InfoBox("Add Collider and TouchableObject.cs to the object you want to be touchable")]
         [Required,
-         InfoBox("Assign this and all touchable Objects to a (special) layer", InfoMessageType.Warning,
+         InfoBox("Assign this and all touchable Objects to a (special) layer", InfoMessageType.Error,
              "TouchableLayerAssigned")]
         public LayerMask touchableLayer; // Assign this in the Inspector to include only the touchable objects
 
@@ -22,18 +25,21 @@ namespace MRCH.Common.Interact
 
         [SerializeField] protected UnityEvent universalReturnEvent;
 
-        [Title("Setting"), PropertyRange(0f, 300f), SerializeField]
-        private float touchRange;
+        [Title("Setting"), PropertyRange(1f, 300f), SerializeField]
+        private float touchRange = 10f;
 
         private Camera _mainCam;
 
-        [SerializeField, InfoBox("Enable this if you want other objects to be unable to interact after one is touched"),
+        [Space, SerializeField,
+         InfoBox("Enable this if you want other objects to be unable to interact after one is touched"),
          Tooltip("Enable this if you want other objects to be unable to interact after one is touched")]
         private bool disableTouchOfOtherObjects;
 
         // Input System actions
         protected InputAction touchAction;
         //[SerializeField] protected InputAction clickAction;
+
+        [Space, SerializeField] protected bool showGizmos = true;
 
 
         protected virtual void Start()
@@ -125,6 +131,18 @@ namespace MRCH.Common.Interact
                 _isTouchable = true;
             Debug.Log("Universal Return Event triggered");
             universalReturnEvent?.Invoke();
+        }
+
+        protected void OnDrawGizmosSelected()
+        {
+            if (!enabled || !showGizmos) return;
+
+            Gizmos.color = new Color(1, 0.5f, 0.5f, 0.75f);
+            Gizmos.DrawWireSphere(transform.position, touchRange);
+#if UNITY_EDITOR
+            var labelPosition = transform.position + Vector3.forward * touchRange;
+            Handles.Label(labelPosition, "Touch Range");
+#endif
         }
     }
 }

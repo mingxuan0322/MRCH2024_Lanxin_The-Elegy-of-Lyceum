@@ -1,10 +1,22 @@
 # Release notes for MRCH Template
 
+## v1.35
+
+Date: 10.28.2024, by Shengyang
+
+GitHub Commit Hash: [ToBeFilledNextTime]
+
+**Changes:**
+
+- Add Gizmos*  and a `useGizmos` option to `Interaction Trigger`, `Touch Manager`, `Move And Rotate`, and `XR Origin Editor Control`. This enhancement will let you visualize the distance range of *Distance Triggers*, *LookAt Triggers*, and *Touch Range*. Additionally, you’ll see a line connecting the moving object to its target and a ray projecting from the camera's front, helping to estimate the LookAt angle.
+
+**Gizmos are used to give visual debugging or setup aids in the Scene view.*
+
 ## v1.3
 
 Date: 10.26.2024, by Shengyang
 
-GitHub Commit Hash: [ToBeFilledNextTime]
+GitHub Commit Hash: 368edf5997489b7806db809ec252f55e919e3a9a
 
 **Changes:**
 

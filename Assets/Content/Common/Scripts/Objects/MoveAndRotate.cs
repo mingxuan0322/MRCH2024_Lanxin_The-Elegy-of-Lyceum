@@ -26,10 +26,8 @@ namespace MRCH.Common.Interact
 
         [Space, SerializeField] protected Ease moveType = Ease.InOutSine;
 
-        [Title("Rotate Options")] 
-        public bool keepRotatingOnEnable = false;
-        [HideIf("keepRotatingOnEnable")]
-        public bool keepRotatingAfterLocalized = false;
+        [Title("Rotate Options")] public bool keepRotatingOnEnable = false;
+        [HideIf("keepRotatingOnEnable")] public bool keepRotatingAfterLocalized = false;
         public Vector3 rotationAxis = Vector3.up;
 
         [Unit(Units.Second)] public float rotateDuration = 10f;
@@ -40,6 +38,9 @@ namespace MRCH.Common.Interact
 
         protected Tween _moveTween;
         protected Tween _rotateTween;
+
+        [Space, Title("Setting", bold: false), SerializeField]
+        protected bool showGizmos = true;
 
         protected virtual void Initialize()
         {
@@ -152,6 +153,17 @@ namespace MRCH.Common.Interact
             transform.DOKill();
             //moveTarget.DOKill();
             Tool.EventBroadcaster.OnFirstLocalized -= Initialize;
+        }
+
+        protected void OnDrawGizmosSelected()
+        {
+            if (!enabled || !showGizmos) return;
+
+            if (moveTarget)
+            {
+                Gizmos.color = Color.cyan;
+                Gizmos.DrawLine(transform.position, moveTarget.position);
+            }
         }
     }
 }

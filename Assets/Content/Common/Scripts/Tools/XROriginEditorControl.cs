@@ -2,6 +2,9 @@ using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace MRCH.Common.Tool
 {
@@ -117,6 +120,16 @@ namespace MRCH.Common.Tool
                 transform.Rotate(Vector3.up, yaw, Space.World);
                 transform.Rotate(Vector3.right, pitch, Space.Self);
             }
+        }
+
+        protected void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawRay(transform.position, transform.forward * 10f);
+#if UNITY_EDITOR
+            var labelPosition = transform.position + Vector3.forward * 5f;
+            Handles.Label(labelPosition, "Camera Forward");
+#endif
         }
 #endif
     }

@@ -1,6 +1,9 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace MRCH.Common.Interact
 {
@@ -126,6 +129,9 @@ namespace MRCH.Common.Interact
         #region Setting
 
         [Space, Title("Setting", bold: false), SerializeField]
+        protected bool showGizmos = true;
+
+        [InfoBox("This will print a log when any events are triggered", "debugMode"), SerializeField]
         protected bool debugMode = false;
 
         #endregion
@@ -283,9 +289,33 @@ namespace MRCH.Common.Interact
             }
         }
 
-        public static bool CheckRateLimiter(float frequency)
+        private static bool CheckRateLimiter(float frequency)
         {
             return Time.frameCount % frequency == 0;
+        }
+
+        protected void OnDrawGizmosSelected()
+        {
+            if (!enabled || !showGizmos) return;
+            if (useDistanceTrigger)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireSphere(transform.position, distance);
+#if UNITY_EDITOR
+                var labelPosition = transform.position + Vector3.forward * distance;
+                Handles.Label(labelPosition, "Distance Trigger Range");
+#endif
+            }
+
+            if (useLookAtTrigger)
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(transform.position, lookAtDistance);
+#if UNITY_EDITOR
+                var labelPosition = transform.position + Vector3.forward * lookAtDistance;
+                Handles.Label(labelPosition, "LookAt Trigger Distance Range");
+#endif
+            }
         }
 
         #region TriggerEachEvents

@@ -128,9 +128,14 @@ OR
 
 ------
 
-### Debugging
+### Setting
 
-#### debugMode
+#### Show Gizmos
+
+- **Type**: boolean
+  If enabled, when `use Distance Trigger` or `Use Look At Trigger`, it would draw a wire sphere to visualize the range.
+
+#### Debug Mode
 
 - **Type**: boolean
   If enabled, all events will log messages via `Debug.Log()` for easier debugging.
@@ -139,7 +144,7 @@ OR
 
 ## Unity Event Library
 
-### NamedUnityEvent
+### Named Unity Event
 
 - **Class**: *NamedUnityEvent*
 
@@ -149,7 +154,7 @@ OR
   - `waitBeforeInvoke` (float): Time to delay the event trigger.
   - `unityEvent` (UnityEvent): The event to be triggered.
 
-### NamedUnityEventSequence
+### Named Unity Event Sequence
 
 - **Class**: *NamedUnityEventSequence*
 
@@ -171,31 +176,92 @@ OR
 
 #### Move Options
 
-- **Move Target** (Transform): The target to move to. **Required** if movement is needed.
-- **Move Speed** (float): Reference move speed. If a move type other than `Linear` is used, the speed is only for reference.
-- **Move For Once On Enable** (boolean): Determines if the object moves to the Move Target upon enabling. Use `MoveBackForOnce()` or `JumpBackToInitialPosition()` for multiple movements.
-- **Move Forth And Back On Enable** (boolean): Determines if the object moves back and forth between its original position and the Move Target upon enabling.
-- **Move For Once After Localized** (boolean): Determines if the object moves to the Move Target after the first successful localization.
-- **Move Forth And Back After Localized** (boolean): Determines if the object moves back and forth between its original position and the Move Target after the first successful localization.
-- **Move Type** (enum Dotween.MoveType): Default is `In Out Sine`. Experiment with other types to see different effects.
+##### Move Target 
+
+*  (Transform): The target to move to. **Required** if movement is needed.
+
+##### Move Speed 
+
+*  (float): Reference move speed. If a move type other than `Linear` is used, the speed is only for reference.
+
+##### Move For Once On Enable
+
+*   (boolean): Determines if the object moves to the Move Target upon enabling. Use `MoveBackForOnce()` or `JumpBackToInitialPosition()` for multiple movements.
+
+##### Move Forth And Back On Enable 
+
+*  (boolean): Determines if the object moves back and forth between its original position and the Move Target upon enabling.
+
+##### Move For Once After Localized
+
+ *  (boolean): Determines if the object moves to the Move Target after the first successful localization.
+
+##### Move Forth And Back After Localized
+
+*   (boolean): Determines if the object moves back and forth between its original position and the Move Target after the first successful localization.
+
+##### Move Type 
+
+*  (enum Dotween.MoveType): Default is `In Out Sine`. Experiment with other types to see different effects.
 
 #### Rotate Options
 
-- **Keep Rotating On Enable** (boolean): Determines if the object continues rotating along an axis, with each rotation cycle lasting the specified `Rotate Duration` upon enabling.
-- **Keep Rotating After Localized** (boolean): Determines if the object continues rotating along an axis, with each rotation cycle lasting the specified `Rotate Duration` after the first successful localization.
-- **Rotation Axis** (Vector3): The axis along which the object will rotate.
-- **Rotate Duration** (float): Time in seconds for a full rotation.
-- **Rotate Type** (enum Dotween.MoveType): Default is `Linear`.
+##### Keep Rotating On Enable
+
+*  (boolean): Determines if the object continues rotating along an axis, with each rotation cycle lasting the specified `Rotate Duration` upon enabling.
+
+##### Keep Rotating After Localized
+
+*  (boolean): Determines if the object continues rotating along an axis, with each rotation cycle lasting the specified `Rotate Duration` after the first successful localization.
+
+##### Rotation Axis 
+
+*  (Vector3): The axis along which the object will rotate.
+
+##### Rotate Duration 
+
+*  (float): Time in seconds for a full rotation.
+
+##### Rotate Type 
+
+*  (enum Dotween.MoveType): Default is `Linear`.
+
+#### Setting
+
+##### Show Gizmos
+
+- **Type**: boolean
+  If enabled, it would draw a line from the object to the `MoveTarget` if there is one.
 
 ### Public Methods
 
-- **MoveForOnce()**: Moves the object to the Move Target once.
-- **MoveBackForOnce()**: Moves the object back to its original position once.
-- **JumpBackToInitialPosition()**: Instantly sets the object back to its initial position.
-- **MoveForthAndBack()**: Moves the object between its initial and target positions back and forth.
-- **RotateObject()**: Starts rotating the object.
-- **StopMovement()**: Stops the object’s movement.
-- **StopRotation()**: Stops the object’s rotation.
+##### MoveForOnce()
+
+- Moves the object to the Move Target once.
+
+##### MoveBackForOnce()
+
+* Moves the object back to its original position once.
+
+##### JumpBackToInitialPosition()
+
+* Instantly sets the object back to its initial position.
+
+##### MoveForthAndBack()
+
+* Moves the object between its initial and target positions back and forth.
+
+##### RotateObject()
+
+* Starts rotating the object.
+
+##### StopMovement()
+
+* Stops the object’s movement.
+
+##### StopRotation()
+
+* Stops the object’s rotation.
 
 ------
 
@@ -380,6 +446,11 @@ Manages interaction with touchable objects in a scene.
 
 - **Type**: `boolean`
 - **Description**: If enabled, players must touch a return object before interacting with other objects.
+
+##### Show Gizmos
+
+- **Type**: `boolean`
+- **Description**: When enabled, this feature draws a wireframe circle with a radius equal to the `touchRange`.
 
 #### Public Methods
 
