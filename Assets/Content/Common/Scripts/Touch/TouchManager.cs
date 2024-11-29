@@ -37,6 +37,8 @@ namespace MRCH.Common.Interact
 
         [Space] public float clickInterval = 0.5f;
         private float _timeCnt = float.MaxValue;
+        [InfoBox("If your click interval is too long, try playing fail audio fx or some vfx here.")]
+        public UnityEvent failedToClickEvent;
 
         // Input System actions
         protected InputAction touchAction;
@@ -103,7 +105,11 @@ namespace MRCH.Common.Interact
                     var touchable = hit.transform.GetComponent<TouchableObject>();
                     if (touchable)
                     {
-                        if (_timeCnt <= clickInterval) return;
+                        if (_timeCnt <= clickInterval)
+                        {
+                            failedToClickEvent?.Invoke();
+                            return;
+                        }
                         _timeCnt = 0f;
                         if (touchable.isReturn)
                         {
