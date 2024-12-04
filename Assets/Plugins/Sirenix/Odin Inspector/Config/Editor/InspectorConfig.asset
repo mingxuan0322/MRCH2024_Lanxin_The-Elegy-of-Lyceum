@@ -16,6 +16,4 @@ MonoBehaviour:
   defaultEditorBehaviour: 11
   processMouseMoveInInspector: 1
   drawingConfig:
-    configs:
-    - DrawnTypeName: Unity.UI.Builder.BuilderDocument, UnityEditor.UIBuilderModule
-      EditorTypeName: 
+    configs: []
