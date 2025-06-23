@@ -8,7 +8,8 @@ A Mixed-Reality Experience based on cultural heritage behind the Lyceum（1865-t
 - Field testing and iteration
 
 ### [Trailer](https://youtu.be/dwSGBd23M58)
-### [Last On-site Test](https://youtu.be/FKysUJf-vJs) The recognition and positioning of AR are still affected by temporary markets and the weather.
+### [Last On-site Test](https://youtu.be/FKysUJf-vJs) 
+The recognition and positioning of AR are still affected by temporary markets and the weather.
 
 
 ## Abstract
